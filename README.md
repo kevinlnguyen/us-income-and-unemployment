@@ -27,52 +27,52 @@ We are interested in the field/domain because we want to understand the changes 
 ### U.S. Minimum Wage by State 1968-2017 by Joseph Lisle
 
 * Where did you download the data (e.g., a web URL)?
-> https://www.kaggle.com/lislejoem/us-minimum-wage-by-state-from-1968-to-2017
+    > https://www.kaggle.com/lislejoem/us-minimum-wage-by-state-from-1968-to-2017
 
 * How was the data collected or generated? Make sure to explain who collected the data (not necessarily the same people that host the data), and who or what the data is about?
-> This data was collected from the U.S. Department of Labor’s website. The author, Joseph Lisle collected the data to filter out a clean dataset of the minimum wage by state. The data filters out the year, state, a high value of proposed minimum wage, and low value of the proposed minimum wage by year based on the federal laws protecting wage workers.
+    > This data was collected from the U.S. Department of Labor’s website. The author, Joseph Lisle collected the data to filter out a clean dataset of the minimum wage by state. The data filters out the year, state, a high value of proposed minimum wage, and low value of the proposed minimum wage by year based on the federal laws protecting wage workers.
 
 * How many observations (rows) are in your data?
-> 2750 rows
+    > 2750 rows
 
 * How many features (columns) are in the data?
-> 9 features
+    > 9 features
 
 * What questions (from above) can be answered using the data in this dataset?
-> A few questions that can be answered using the data is how minimum wages grouped by year in each state varied when comparing per state. At the same time, we can group by year to compare rates of change due to other factors such as inflation, increased cost of living, etc.
+    > A few questions that can be answered using the data is how minimum wages grouped by year in each state varied when comparing per state. At the same time, we can group by year to compare rates of change due to other factors such as inflation, increased cost of living, etc.
 
 
 ### Consumer Price Index by U.S. Bureau Labor of Statistics
 
 * Where did you download the data (e.g., a web URL)?
-> https://www.kaggle.com/bls/consumer-price-index
+    > https://www.kaggle.com/bls/consumer-price-index
 
 * How was the data collected or generated? Make sure to explain who collected the data (not necessarily the same people that host the data), and who or what the data is about?
-> The data was collected directly from the U.S. Bureau of Labor Statistics website. It was built by U.S. Bureau of Labor Statistics themselves and converted the data into a .csv file. It splits into multiple datasets that represent what each of the codes and numbers means in every dataset based under the location of the population, and the goods and services provided (beverages, housing, etc.).
+    > The data was collected directly from the U.S. Bureau of Labor Statistics website. It was built by U.S. Bureau of Labor Statistics themselves and converted the data into a .csv file. It splits into multiple datasets that represent what each of the codes and numbers means in every dataset based under the location of the population, and the goods and services provided (beverages, housing, etc.).
 
 * How many observations (rows) are in your data?
-> Varies from 11,900 rows to 674,000 rows
+    > Varies from 11,900 rows to 674,000 rows
 
 * How many features (columns) are in the data?
-> 5 columns
+    > 5 columns
 
 * What questions (from above) can be answered using the data in this dataset?
-> This data can answer questions such as what consumers in the United States spent money on and what was valued highly during that time period. This is great for situations such as the 2008 economic recession where consumer spending decreased due to increased rates of unemployment across the country.
+    > This data can answer questions such as what consumers in the United States spent money on and what was valued highly during that time period. This is great for situations such as the 2008 economic recession where consumer spending decreased due to increased rates of unemployment across the country.
 
 
 ### US Unemployment Rate by Country, 1990-2016
 
 * Where did you download the data (e.g., a web URL)?
-> https://www.kaggle.com/jayrav13/unemployment-by-county-us
+    > https://www.kaggle.com/jayrav13/unemployment-by-county-us
 
 * How was the data collected or generated? Make sure to explain who collected the data (not necessarily the same people that host the data), and who or what the data is about?
-> The data was collected by scraping the United States Department of Labor’s Bureau of Labor Statistics. The person who built the data was Jay Ravaliya. This data represents the local area unemployment statistics from the years 1990 to 2016. This data is also broken down by state and month.
+    > The data was collected by scraping the United States Department of Labor’s Bureau of Labor Statistics. The person who built the data was Jay Ravaliya. This data represents the local area unemployment statistics from the years 1990 to 2016. This data is also broken down by state and month.
 
 * How many observations (rows) are in your data?
-> 886,000 rows
+    > 886,000 rows
 
 * How many features (columns) are in the data?
-> 5 features
+    > 5 features
 
 * What questions (from above) can be answered using the data in this dataset?
-> This dataset can help us answer questions like how has the unemployment rate has changed over the years and how did it affect the economy and the minimum wage with it.
+    > This dataset can help us answer questions like how has the unemployment rate has changed over the years and how did it affect the economy and the minimum wage with it.
