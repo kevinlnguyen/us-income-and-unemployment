@@ -16,9 +16,9 @@ We are interested in the field/domain because we want to understand the changes 
 
 ### What data-driven questions do you hope to answer about this domain (share at least 3)?
 
-* How the economy has changed over the years?
-* How has a change of price in the consumer goods has affected our economy and changes the minimum wage over the years?
-* How has the unemployment rate for each state has changed over the years and did it affect the minimum wage of that state with it?
+* How has the economy changed over the years?
+* How has a change of price in the consumer goods affected our economy and changes the minimum wage over the years?
+* How has the unemployment rate for each state changed over the years and did it affect the minimum wage of that state with it?
 * How does minimum wage compare when grouping by state or year?
 
 
@@ -48,7 +48,7 @@ We are interested in the field/domain because we want to understand the changes 
     > https://www.kaggle.com/bls/consumer-price-index
 
 * How was the data collected or generated? Make sure to explain who collected the data (not necessarily the same people that host the data), and who or what the data is about?
-    > The data was collected directly from the U.S. Bureau of Labor Statistics website. It was built by U.S. Bureau of Labor Statistics themselves and converted the data into a .csv file. It splits into multiple datasets that represent what each of the codes and numbers means in every dataset based under the location of the population, and the goods and services provided (beverages, housing, etc.).
+    > The data was collected directly from the U.S. Bureau of Labor Statistics website. It was built by U.S. Bureau of Labor Statistics themselves and converted the data into a .csv file. It splits into multiple datasets that represent what each of the codes and numbers mean in every dataset based under the location of the population, and the goods and services provided (beverages, housing, etc.).
 
 * How many observations (rows) are in your data?
     > Varies from 11,900 rows to 674,000 rows
@@ -75,4 +75,4 @@ We are interested in the field/domain because we want to understand the changes 
     > 5 features
 
 * What questions (from above) can be answered using the data in this dataset?
-    > This dataset can help us answer questions like how has the unemployment rate has changed over the years and how did it affect the economy and the minimum wage with it.
+    > This dataset can help us answer questions like how has the unemployment rate changed over the years and how did it affect the economy and the minimum wage with it.
