@@ -10,8 +10,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Introduction
-With the rising costs of living across the United States, [reports](https://www.theguardian.com/commentisfree/2018/jul/29/us-economy-workers-paycheck-robert-reich)
-show that citizens are living paycheck to paychek as a means of survivability. 
+With the rising costs of living across the United States, this [report](https://www.theguardian.com/commentisfree/2018/jul/29/us-economy-workers-paycheck-robert-reich) show that citizens are living paycheck to paycheck as a means of survivability. As of 2019, employment rates are statistically low in comparison to prior years but does not answer the question of why the majority still struggle with obtaining monetary safety nets. Our goal is to identify associations of consumer spending based on minimum wage values per state in order to address economic affordability based on mininum wage and life sustainability.
+
 
 
 
