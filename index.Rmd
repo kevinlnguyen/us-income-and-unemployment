@@ -9,6 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+<<<<<<< HEAD
 ## Introduction
 <<<<<<< HEAD
 With the rising costs of living across the United States, this [report](https://www.theguardian.com/commentisfree/2018/jul/29/us-economy-workers-paycheck-robert-reich) 
@@ -20,6 +21,8 @@ in order to address economic affordability based on mininum wage and life sustai
 =======
 With the rising costs of living across the United States, [reports](https://www.theguardian.com/commentisfree/2018/jul/29/us-economy-workers-paycheck-robert-reich)
 show that citizens are living paycheck to paychek as a means of survivability. 
+>>>>>>> Kevin_Branch
+=======
 >>>>>>> Kevin_Branch
 
 ## Aggregate Table
