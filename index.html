@@ -199,6 +199,408 @@ $(document).ready(function () {
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
 <p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD With the rising costs of living across the United States, this <a href="https://www.theguardian.com/commentisfree/2018/jul/29/us-economy-workers-paycheck-robert-reich">report</a> show that citizens are living paycheck to paycheck as a means of survivability. As of 2019, employment rates are statistically low in comparison to prior years but does not answer the question of why the majority still struggle with obtaining monetary safety nets. Our goal is to identify associations of consumer spending based on minimum wage values per state in order to address economic affordability based on mininum wage and life sustainability. ======= With the rising costs of living across the United States, <a href="https://www.theguardian.com/commentisfree/2018/jul/29/us-economy-workers-paycheck-robert-reich">reports</a> show that citizens are living paycheck to paychek as a means of survivability. &gt;&gt;&gt;&gt;&gt;&gt;&gt; Kevin_Branch</p>
+</div>
+<div id="aggregate-table" class="section level2">
+<h2>Aggregate Table</h2>
+<p>The table below summarizes 2750 rows down to 55 rows, grouping all the data by state and averaging out the minimum wage from the year 1900s and 2000s. The table reveals how much is each person getting paid per hour in the 1900s and the 2000s, where you can see the difference in how much we increased our minimum wage throughout the centuries.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">State</th>
+<th align="right">Avg_High_1900s</th>
+<th align="right">Avg_Low_1900s</th>
+<th align="right">Avg_High_2000s</th>
+<th align="right">Avg_Low_2000s</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Alabama</td>
+<td align="right">0.000000</td>
+<td align="right">0.000000</td>
+<td align="right">0.000000</td>
+<td align="right">0.000000</td>
+</tr>
+<tr class="even">
+<td align="left">Alaska</td>
+<td align="right">3.603125</td>
+<td align="right">3.603125</td>
+<td align="right">7.447222</td>
+<td align="right">7.447222</td>
+</tr>
+<tr class="odd">
+<td align="left">Arizona</td>
+<td align="right">0.165000</td>
+<td align="right">0.117000</td>
+<td align="right">4.719444</td>
+<td align="right">4.719444</td>
+</tr>
+<tr class="even">
+<td align="left">Arkansas</td>
+<td align="right">2.639453</td>
+<td align="right">2.639453</td>
+<td align="right">6.113889</td>
+<td align="right">6.113889</td>
+</tr>
+<tr class="odd">
+<td align="left">California</td>
+<td align="right">3.095312</td>
+<td align="right">3.095312</td>
+<td align="right">7.736111</td>
+<td align="right">7.736111</td>
+</tr>
+<tr class="even">
+<td align="left">Colorado</td>
+<td align="right">2.278125</td>
+<td align="right">2.192188</td>
+<td align="right">6.725556</td>
+<td align="right">6.725556</td>
+</tr>
+<tr class="odd">
+<td align="left">Connecticut</td>
+<td align="right">3.185313</td>
+<td align="right">3.175937</td>
+<td align="right">7.866667</td>
+<td align="right">7.866667</td>
+</tr>
+<tr class="even">
+<td align="left">Delaware</td>
+<td align="right">2.693750</td>
+<td align="right">2.693750</td>
+<td align="right">6.944444</td>
+<td align="right">6.944444</td>
+</tr>
+<tr class="odd">
+<td align="left">District of Columbia</td>
+<td align="right">3.715625</td>
+<td align="right">2.972187</td>
+<td align="right">7.883333</td>
+<td align="right">7.883333</td>
+</tr>
+<tr class="even">
+<td align="left">Federal (FLSA)</td>
+<td align="right">3.103125</td>
+<td align="right">3.046875</td>
+<td align="right">6.200000</td>
+<td align="right">6.200000</td>
+</tr>
+<tr class="odd">
+<td align="left">Florida</td>
+<td align="right">0.000000</td>
+<td align="right">0.000000</td>
+<td align="right">4.953333</td>
+<td align="right">4.953333</td>
+</tr>
+<tr class="even">
+<td align="left">Georgia</td>
+<td align="right">1.843125</td>
+<td align="right">1.843125</td>
+<td align="right">4.938889</td>
+<td align="right">4.938889</td>
+</tr>
+<tr class="odd">
+<td align="left">Guam</td>
+<td align="right">3.118750</td>
+<td align="right">3.118750</td>
+<td align="right">6.327778</td>
+<td align="right">6.327778</td>
+</tr>
+<tr class="even">
+<td align="left">Hawaii</td>
+<td align="right">3.160938</td>
+<td align="right">3.160938</td>
+<td align="right">6.958333</td>
+<td align="right">6.958333</td>
+</tr>
+<tr class="odd">
+<td align="left">Idaho</td>
+<td align="right">2.575000</td>
+<td align="right">2.575000</td>
+<td align="right">6.200000</td>
+<td align="right">6.200000</td>
+</tr>
+<tr class="even">
+<td align="left">Illinois</td>
+<td align="right">2.487500</td>
+<td align="right">2.487500</td>
+<td align="right">7.033333</td>
+<td align="right">7.033333</td>
+</tr>
+<tr class="odd">
+<td align="left">Indiana</td>
+<td align="right">2.115625</td>
+<td align="right">2.115625</td>
+<td align="right">6.200000</td>
+<td align="right">6.200000</td>
+</tr>
+<tr class="even">
+<td align="left">Iowa</td>
+<td align="right">1.329687</td>
+<td align="right">1.329687</td>
+<td align="right">6.316667</td>
+<td align="right">6.316667</td>
+</tr>
+<tr class="odd">
+<td align="left">Kansas</td>
+<td align="right">1.345312</td>
+<td align="right">1.345312</td>
+<td align="right">4.694444</td>
+<td align="right">4.694444</td>
+</tr>
+<tr class="even">
+<td align="left">Kentucky</td>
+<td align="right">2.432812</td>
+<td align="right">2.407812</td>
+<td align="right">6.200000</td>
+<td align="right">6.200000</td>
+</tr>
+<tr class="odd">
+<td align="left">Louisiana</td>
+<td align="right">0.000000</td>
+<td align="right">0.000000</td>
+<td align="right">0.000000</td>
+<td align="right">0.000000</td>
+</tr>
+<tr class="even">
+<td align="left">Maine</td>
+<td align="right">3.145313</td>
+<td align="right">3.095312</td>
+<td align="right">6.883333</td>
+<td align="right">6.883333</td>
+</tr>
+<tr class="odd">
+<td align="left">Maryland</td>
+<td align="right">3.056250</td>
+<td align="right">3.037500</td>
+<td align="right">6.494444</td>
+<td align="right">6.494444</td>
+</tr>
+<tr class="even">
+<td align="left">Massachusetts</td>
+<td align="right">3.167187</td>
+<td align="right">3.167187</td>
+<td align="right">7.777778</td>
+<td align="right">7.777778</td>
+</tr>
+<tr class="odd">
+<td align="left">Michigan</td>
+<td align="right">2.851562</td>
+<td align="right">2.851562</td>
+<td align="right">6.713889</td>
+<td align="right">6.713889</td>
+</tr>
+<tr class="even">
+<td align="left">Minnesota</td>
+<td align="right">2.932812</td>
+<td align="right">2.775000</td>
+<td align="right">6.450000</td>
+<td align="right">5.563889</td>
+</tr>
+<tr class="odd">
+<td align="left">Mississippi</td>
+<td align="right">0.000000</td>
+<td align="right">0.000000</td>
+<td align="right">0.000000</td>
+<td align="right">0.000000</td>
+</tr>
+<tr class="even">
+<td align="left">Missouri</td>
+<td align="right">1.253125</td>
+<td align="right">1.253125</td>
+<td align="right">6.436111</td>
+<td align="right">6.436111</td>
+</tr>
+<tr class="odd">
+<td align="left">Montana</td>
+<td align="right">2.498438</td>
+<td align="right">2.498438</td>
+<td align="right">6.530556</td>
+<td align="right">4.897222</td>
+</tr>
+<tr class="even">
+<td align="left">Nebraska</td>
+<td align="right">2.387500</td>
+<td align="right">2.387500</td>
+<td align="right">6.436111</td>
+<td align="right">6.436111</td>
+</tr>
+<tr class="odd">
+<td align="left">Nevada</td>
+<td align="right">2.915625</td>
+<td align="right">2.906250</td>
+<td align="right">6.704444</td>
+<td align="right">6.243333</td>
+</tr>
+<tr class="even">
+<td align="left">New Hampshire</td>
+<td align="right">3.110937</td>
+<td align="right">3.092188</td>
+<td align="right">6.275000</td>
+<td align="right">6.275000</td>
+</tr>
+<tr class="odd">
+<td align="left">New Jersey</td>
+<td align="right">3.128125</td>
+<td align="right">3.128125</td>
+<td align="right">6.719444</td>
+<td align="right">6.719444</td>
+</tr>
+<tr class="even">
+<td align="left">New Mexico</td>
+<td align="right">2.789062</td>
+<td align="right">2.717188</td>
+<td align="right">6.200000</td>
+<td align="right">6.200000</td>
+</tr>
+<tr class="odd">
+<td align="left">New York</td>
+<td align="right">3.062500</td>
+<td align="right">3.062500</td>
+<td align="right">6.861111</td>
+<td align="right">6.861111</td>
+</tr>
+<tr class="even">
+<td align="left">North Carolina</td>
+<td align="right">2.817188</td>
+<td align="right">2.817188</td>
+<td align="right">6.272222</td>
+<td align="right">6.272222</td>
+</tr>
+<tr class="odd">
+<td align="left">North Dakota</td>
+<td align="right">2.943750</td>
+<td align="right">2.700000</td>
+<td align="right">6.200000</td>
+<td align="right">6.200000</td>
+</tr>
+<tr class="even">
+<td align="left">Ohio</td>
+<td align="right">2.506250</td>
+<td align="right">2.381250</td>
+<td align="right">6.302778</td>
+<td align="right">5.605556</td>
+</tr>
+<tr class="odd">
+<td align="left">Oklahoma</td>
+<td align="right">2.839062</td>
+<td align="right">2.839062</td>
+<td align="right">6.200000</td>
+<td align="right">2.000000</td>
+</tr>
+<tr class="even">
+<td align="left">Oregon</td>
+<td align="right">3.120312</td>
+<td align="right">3.120312</td>
+<td align="right">8.047222</td>
+<td align="right">8.047222</td>
+</tr>
+<tr class="odd">
+<td align="left">Pennsylvania</td>
+<td align="right">3.046875</td>
+<td align="right">3.046875</td>
+<td align="right">6.366667</td>
+<td align="right">6.366667</td>
+</tr>
+<tr class="even">
+<td align="left">Puerto Rico</td>
+<td align="right">3.065625</td>
+<td align="right">0.993750</td>
+<td align="right">6.025000</td>
+<td align="right">4.290556</td>
+</tr>
+<tr class="odd">
+<td align="left">Rhode Island</td>
+<td align="right">3.045313</td>
+<td align="right">3.045313</td>
+<td align="right">7.372222</td>
+<td align="right">7.372222</td>
+</tr>
+<tr class="even">
+<td align="left">South Carolina</td>
+<td align="right">0.000000</td>
+<td align="right">0.000000</td>
+<td align="right">0.000000</td>
+<td align="right">0.000000</td>
+</tr>
+<tr class="odd">
+<td align="left">South Dakota</td>
+<td align="right">2.553125</td>
+<td align="right">2.548437</td>
+<td align="right">6.419444</td>
+<td align="right">6.419444</td>
+</tr>
+<tr class="even">
+<td align="left">Tennessee</td>
+<td align="right">0.000000</td>
+<td align="right">0.000000</td>
+<td align="right">0.000000</td>
+<td align="right">0.000000</td>
+</tr>
+<tr class="odd">
+<td align="left">Texas</td>
+<td align="right">1.956250</td>
+<td align="right">1.956250</td>
+<td align="right">6.000000</td>
+<td align="right">6.000000</td>
+</tr>
+<tr class="even">
+<td align="left">U.S. Virgin Islands</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">6.055556</td>
+<td align="right">4.300000</td>
+</tr>
+<tr class="odd">
+<td align="left">Utah</td>
+<td align="right">2.742188</td>
+<td align="right">2.596875</td>
+<td align="right">6.200000</td>
+<td align="right">6.200000</td>
+</tr>
+<tr class="even">
+<td align="left">Vermont</td>
+<td align="right">3.140625</td>
+<td align="right">3.140625</td>
+<td align="right">7.751111</td>
+<td align="right">7.751111</td>
+</tr>
+<tr class="odd">
+<td align="left">Virginia</td>
+<td align="right">2.342188</td>
+<td align="right">2.342188</td>
+<td align="right">6.200000</td>
+<td align="right">6.200000</td>
+</tr>
+<tr class="even">
+<td align="left">Washington</td>
+<td align="right">2.754688</td>
+<td align="right">2.745312</td>
+<td align="right">8.251667</td>
+<td align="right">8.251667</td>
+</tr>
+<tr class="odd">
+<td align="left">West Virginia</td>
+<td align="right">2.685938</td>
+<td align="right">2.685938</td>
+<td align="right">6.525000</td>
+<td align="right">6.525000</td>
+</tr>
+<tr class="even">
+<td align="left">Wisconsin</td>
+<td align="right">2.968750</td>
+<td align="right">2.968750</td>
+<td align="right">6.338889</td>
+<td align="right">6.338889</td>
+</tr>
+<tr class="odd">
+<td align="left">Wyoming</td>
+<td align="right">1.543750</td>
+<td align="right">1.543750</td>
+<td align="right">4.755556</td>
+<td align="right">4.755556</td>
+</tr>
+</tbody>
+</table>
 <p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
 </div>
 
