@@ -9,9 +9,6 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Introduction
-With the rising costs of living across the United States, [reports](https://www.theguardian.com/commentisfree/2018/jul/29/us-economy-workers-paycheck-robert-reich)
-show that citizens are living paycheck to paychek as a means of survivability. 
 
 
 
