@@ -9,21 +9,13 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<<<<<<< HEAD
 ## Introduction
-<<<<<<< HEAD
 With the rising costs of living across the United States, this [report](https://www.theguardian.com/commentisfree/2018/jul/29/us-economy-workers-paycheck-robert-reich) 
 show that citizens are living paycheck to paycheck as a means of survivability. As of 2019, employment 
 rates are statistically low in comparison to prior years but does not answer the question of why 
 the majority still struggle with obtaining monetary safety nets. Our goal is to 
 identify associations of consumer spending based on minimum wage values per state 
 in order to address economic affordability based on mininum wage and life sustainability.
-=======
-With the rising costs of living across the United States, [reports](https://www.theguardian.com/commentisfree/2018/jul/29/us-economy-workers-paycheck-robert-reich)
-show that citizens are living paycheck to paychek as a means of survivability. 
->>>>>>> Kevin_Branch
-=======
->>>>>>> Kevin_Branch
 
 ## Aggregate Table
 The table below summarizes 2750 rows down to 55 rows, grouping all the data by state and averaging out the minimum wage from the year 1900s and 2000s. The table reveals how much is each person getting paid per hour in the 1900s and the 2000s, where you can see the difference in how much we increased our minimum wage throughout the centuries.
