@@ -3,7 +3,7 @@ library(dplyr)
 us_min_wage <- read.csv("data/Minimum_Wage_Data.csv", stringsAsFactors = FALSE)
 
 aggregate_table <- function(dataset) {
-  year_1900_min_wage <- dataset %>% 
+  year_1900_min_wage <- dataset %>%
     filter(Year < 2000) %>% group_by(State) %>%
     summarize(Avg_High_1900s = mean(High.Value),
               Avg_Low_1900s = mean(Low.Value))
