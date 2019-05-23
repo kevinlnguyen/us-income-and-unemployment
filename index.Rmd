@@ -25,5 +25,10 @@ source("Scripts/Aggregate_Table.R")
 knitr::kable(aggregate_table(us_min_wage))
 ```
 
+## Comparing Washington State and New York 
+```{r }
+
+```
+
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
