@@ -6,8 +6,21 @@ output: html_document
 ---
 
 ```{r setup, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
 knitr::opts_chunk$set(echo = FALSE)
-source("WA_Min_Wage_Chart.R")
+source("scripts/summary_info.R")
+source("scripts/Aggregate_Table.R")
+source("scripts/WA_Min_Wage_Chart.R")
+
+min_wage_ds <- read.csv("data/Minimum_Wage_Data.csv", stringsAsFactors = FALSE)
+
+# Create summary information
+summary_info <- summary_info(min_wage_ds)
+
+agg_table <- aggregate_table(min_wage_ds)
+
+WA_NY <- WA_NY_comparison(min_wage_ds)
+
 ```
 
 ## Introduction
@@ -18,17 +31,25 @@ the majority still struggle with obtaining monetary safety nets. Our goal is to
 identify associations of consumer spending based on minimum wage values per state 
 in order to address economic affordability based on mininum wage and life sustainability.
 
+## Summary
+`r summary_info$highest_average_pay$State`
+`r summary_info$highest_average_pay$total`
+`r summary_info$lowest_average_pay$State`
+`r summary_info$lowest_average_pay$total`
+`r summary_info$overall_average`
+`r summary_info$average_CPI`
+`r summary_info$worst_year$Year`
+`r summary_info$worst_year$total`
+
 ## Aggregate Table
 The table below summarizes 2750 rows down to 55 rows, grouping all the data by state and averaging out the minimum wage from the year 1900s and 2000s. The table reveals how much is each person getting paid per hour in the 1900s and the 2000s, where you can see the difference in how much we increased our minimum wage throughout the centuries.
 ```{r echo = FALSE, message = FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-source("Scripts/Aggregate_Table.R")
-knitr::kable(aggregate_table(us_min_wage))
+knitr::kable(agg_table)
 ```
 
 ## Comparing Washington State and New York
-```{r WA_NY_Comparison, echo=FALSE, warning=FALSE}
-WA_NY_comparison(US_min_wage_df)
+```{r echo=FALSE, warning=FALSE}
+WA_NY
 ```
 Over the past 17 years, cities such as Seattle and New York have progressively increased in population size. This is detrimental, as higher populations leads to increased demands of consumer goods and services which in turn means both states must sustain the higher cost of living by providing individuals with higher wages. This chart shows that example, as increases in the consumer price index, minimum wage scales in a upward trend allowing for sustainable livability. 
 
