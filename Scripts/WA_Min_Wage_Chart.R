@@ -26,5 +26,5 @@ WA_NY_comparison <- function(dataset) {
       yaxis = list(title = "Minimum Wage ($)")
     )
 
-  example_graph
+  return(example_graph)
 }
