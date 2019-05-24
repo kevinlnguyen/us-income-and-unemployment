@@ -12,8 +12,9 @@ source("WA_Min_Wage_Chart.R")
 
 
 
-##
+## Comparing Washington State and New York
 ```{r WA_NY_Comparison, echo=FALSE, warning=FALSE}
 WA_NY_comparison(US_min_wage_df)
 ```
+Over the past 17 years, cities such as Seattle and New York have progressively increased in population size. This is detrimental, as higher populations leads to increased demands of consumer goods and services which in turn means both states must sustain the higher cost of living by providing individuals with higher wages. This chart shows that example, as increases in the consumer price index, minimum wage scales in a upward trend allowing for sustainable livability. 
 
