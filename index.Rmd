@@ -5,10 +5,12 @@ date: "5/21/2019"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, message=FALSE, warning=FALSE, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+source("WA_Min_Wage_Chart.R")
 ```
 
+<<<<<<< HEAD
 ## Introduction
 With the rising costs of living across the United States, this [report](https://www.theguardian.com/commentisfree/2018/jul/29/us-economy-workers-paycheck-robert-reich) 
 show that citizens are living paycheck to paycheck as a means of survivability. As of 2019, employment 
@@ -32,3 +34,12 @@ knitr::kable(aggregate_table(us_min_wage))
 
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+=======
+
+
+##
+```{r WA_NY_Comparison, echo=FALSE, warning=FALSE}
+WA_NY_comparison(US_min_wage_df)
+```
+
+>>>>>>> Kevin_Branch
