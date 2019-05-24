@@ -5,23 +5,15 @@ date: "5/21/2019"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, message=FALSE, warning=FALSE, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+source("WA_Min_Wage_Chart.R")
 ```
 
 
 
-
-```{r cars}
-summary(cars)
+##
+```{r WA_NY_Comparison, echo=FALSE}
+WA_NY_Comparison(US_min_wage_df)
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
