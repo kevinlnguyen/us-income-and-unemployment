@@ -8,6 +8,7 @@ output: html_document
 ```{r setup, message=FALSE, warning=FALSE, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 source("WA_Min_Wage_Chart.R")
+source("Scripts/Aggregate_Table.R")
 ```
 
 ## Introduction
@@ -20,9 +21,7 @@ in order to address economic affordability based on mininum wage and life sustai
 
 ## Aggregate Table
 The dataset included 2750 rows, which is separated each year and state (including the US territories), starting from 1968 to 2017. It also included each minimum wage per hour from that timeline and the equivalency of that minimum wage in 2018. In the table below, it is group by state (includes US territories) while taking the average of each minium wage by century (from 1968 to 1999 follows under 1900s while from 2000 to 2017 follows under 2000s). The table reveals the wide gap changes of minimum wage across centuries and in between states/US territories; it shows how there are some states that pays above the federal minimum wage than other states and there's some that has slight increase in their minimum wage a hundred years ago.
-```{r echo = FALSE, message = FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-source("Scripts/Aggregate_Table.R")
+```{r Aggregate Table, echo = FALSE, message = FALSE}
 knitr::kable(aggregate_table(us_min_wage))
 ```
 
