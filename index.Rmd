@@ -5,30 +5,31 @@ date: "5/21/2019"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, message=FALSE, warning=FALSE, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+source("WA_Min_Wage_Chart.R")
 ```
 
 ## Introduction
-<<<<<<< HEAD
 With the rising costs of living across the United States, this [report](https://www.theguardian.com/commentisfree/2018/jul/29/us-economy-workers-paycheck-robert-reich) 
 show that citizens are living paycheck to paycheck as a means of survivability. As of 2019, employment 
 rates are statistically low in comparison to prior years but does not answer the question of why 
 the majority still struggle with obtaining monetary safety nets. Our goal is to 
 identify associations of consumer spending based on minimum wage values per state 
 in order to address economic affordability based on mininum wage and life sustainability.
-=======
-With the rising costs of living across the United States, [reports](https://www.theguardian.com/commentisfree/2018/jul/29/us-economy-workers-paycheck-robert-reich)
-show that citizens are living paycheck to paychek as a means of survivability. 
->>>>>>> Kevin_Branch
 
 ## Aggregate Table
-The table below summarizes 2750 rows down to 55 rows, grouping all the data by state and averaging out the minimum wage from the year 1900s and 2000s. The table reveals how much is each person getting paid per hour in the 1900s and the 2000s, where you can see the difference in how much we increased our minimum wage throughout the centuries.
+The dataset included 2750 rows, which is separated each year and state (including the US territories), starting from 1968 to 2017. It also included each minimum wage per hour from that timeline and the equivalency of that minimum wage in 2018. In the table below, it is group by state (includes US territories) while taking the average of each minium wage by century (from 1968 to 1999 follows under 1900s while from 2000 to 2017 follows under 2000s). The table reveals the wide gap changes of minimum wage across centuries and in between states/US territories; it shows how there are some states that pays above the federal minimum wage than other states and there's some that has slight increase in their minimum wage a hundred years ago.
 ```{r echo = FALSE, message = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 source("Scripts/Aggregate_Table.R")
 knitr::kable(aggregate_table(us_min_wage))
 ```
 
+## Comparing Washington State and New York
+```{r WA_NY_Comparison, echo=FALSE, warning=FALSE}
+WA_NY_comparison(US_min_wage_df)
+```
+Over the past 17 years, cities such as Seattle and New York have progressively increased in population size. This is detrimental, as higher populations leads to increased demands of consumer goods and services which in turn means both states must sustain the higher cost of living by providing individuals with higher wages. This chart shows that example, as increases in the consumer price index, minimum wage scales in a upward trend allowing for sustainable livability. 
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+>>>>>>> Kevin_Branch
