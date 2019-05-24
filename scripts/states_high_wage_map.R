@@ -3,7 +3,10 @@
 library(dplyr)
 library(plotly)
 
+# Returns a chlorpeth map plot of data based on highest
+# wage recorded
 wage_map_plot <- function(data) {
+  # Get data with state and geographic data to plot
   wage <- data %>%
     group_by(State) %>%
     summarize(highest_min_wage = max(High.Value), lowest_min_wage =
@@ -23,6 +26,7 @@ wage_map_plot <- function(data) {
     lakecolor = toRGB("white")
   )
   
+  # Plot wage data on map
   states_map_plot <- plot_geo(wage, locationmode = "USA-states") %>%
     add_trace(
       z = ~highest_min_wage, text = ~hover, locations = ~code,

@@ -20,6 +20,6 @@ aggregate_table <- function(dataset) {
   min_wage_combined <- left_join(year_1900_min_wage, year_2000_min_wage,
     by = "State"
   )
-  
+
   return(min_wage_combined)
 }
