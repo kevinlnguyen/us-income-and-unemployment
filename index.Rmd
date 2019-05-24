@@ -10,7 +10,6 @@ knitr::opts_chunk$set(echo = FALSE)
 source("WA_Min_Wage_Chart.R")
 ```
 
-<<<<<<< HEAD
 ## Introduction
 With the rising costs of living across the United States, this [report](https://www.theguardian.com/commentisfree/2018/jul/29/us-economy-workers-paycheck-robert-reich) 
 show that citizens are living paycheck to paycheck as a means of survivability. As of 2019, employment 
@@ -26,16 +25,6 @@ knitr::opts_chunk$set(echo = TRUE)
 source("Scripts/Aggregate_Table.R")
 knitr::kable(aggregate_table(us_min_wage))
 ```
-
-## Comparing Washington State and New York 
-```{r }
-
-```
-
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-=======
-
 
 ## Comparing Washington State and New York
 ```{r WA_NY_Comparison, echo=FALSE, warning=FALSE}
