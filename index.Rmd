@@ -13,7 +13,7 @@ source("WA_Min_Wage_Chart.R")
 
 
 ##
-```{r WA_NY_Comparison, echo=FALSE}
-WA_NY_Comparison(US_min_wage_df)
+```{r WA_NY_Comparison, echo=FALSE, warning=FALSE}
+WA_NY_comparison(US_min_wage_df)
 ```
 
