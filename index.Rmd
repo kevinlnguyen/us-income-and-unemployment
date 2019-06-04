@@ -6,9 +6,26 @@ output: html_document
 ---
 
 ```{r setup, message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
 knitr::opts_chunk$set(echo = FALSE)
-source("WA_Min_Wage_Chart.R")
-source("Scripts/Aggregate_Table.R")
+source("scripts/summary_info.R")
+source("scripts/Aggregate_Table.R")
+source("scripts/WA_Min_Wage_Chart.R")
+source("scripts/highest_ten_states_2017_graph.R")
+source("scripts/states_high_wage_map.R")
+
+min_wage_ds <- read.csv("data/Minimum_Wage_Data.csv", stringsAsFactors = FALSE)
+
+# Create summary information
+sum_info <- summary_info(min_wage_ds)
+
+agg_table <- aggregate_table(min_wage_ds)
+
+WA_NY <- WA_NY_comparison(min_wage_ds)
+
+ten_highest_2017_states_plot <- ten_states_graph(min_wage_ds)
+
+states_wage_plot <- wage_map_plot(min_wage_ds)
 ```
 
 ## Introduction
@@ -17,18 +34,35 @@ show that citizens are living paycheck to paycheck as a means of survivability. 
 rates are statistically low in comparison to prior years but does not answer the question of why 
 the majority still struggle with obtaining monetary safety nets. Our goal is to 
 identify associations of consumer spending based on minimum wage values per state 
-in order to address economic affordability based on mininum wage and life sustainability.
+in order to address economic affordability based on mininum wage and life sustainability. The data for this report was retrieved on [kaggle](https://www.kaggle.com/lislejoem/us-minimum-wage-by-state-from-1968-to-2017).
+
+## Summary
+This is a overall summary of the dataset we are using which has all the minimum wages from 1968-2017 for every state. From this dataset I found out that the average minimum pay over all these years and in all states has been  **`r sum_info$overall_average `**. With  **`r sum_info$worst_year$Year `** as the overall worst year of all the years it had because of its overall lowest average pay of  **`r sum_info$worst_year$total`**. I calculated this by grouping by the year and then comapring all the years with their average pay. Another findings that I found is about the higest average pay in a state which was of  **`r sum_info$highest_average_pay$State `** with a average pay of  **`r sum_info$highest_average_pay$total `** compared to the  **`r sum_info$lowest_average_pay$State `** which has the lowest overall pay of  **`r sum_info$lowest_average_pay$total `** which you can see is a pretty big difference of  **`r (sum_info$highest_average_pay$total-sum_info$lowest_average_pay$total)`**. I also calculated the average Consumer Price Index which they calculated using the 2018-equivilant values. The average CPI that I calculated is  **`r sum_info$average_CPI`**.
 
 ## Aggregate Table
 The dataset included 2750 rows, which is separated each year and state (including the US territories), starting from 1968 to 2017. It also included each minimum wage per hour from that timeline and the equivalency of that minimum wage in 2018. In the table below, it is group by state (includes US territories) while taking the average of each minium wage by century (from 1968 to 1999 follows under 1900s while from 2000 to 2017 follows under 2000s). The table reveals the wide gap changes of minimum wage across centuries and in between states/US territories; it shows how there are some states that pays above the federal minimum wage than other states and there's some that has slight increase in their minimum wage a hundred years ago.
-```{r Aggregate Table, echo = FALSE, message = FALSE}
-knitr::kable(aggregate_table(us_min_wage))
+
+```{r Aggregate Table, warning = FALSE, echo = FALSE, message = FALSE}
+knitr::kable(agg_table)
 ```
 
 ## Comparing Washington State and New York
-```{r WA_NY_Comparison, echo=FALSE, warning=FALSE}
-WA_NY_comparison(US_min_wage_df)
-```
-Over the past 17 years, cities such as Seattle and New York have progressively increased in population size. This is detrimental, as higher populations leads to increased demands of consumer goods and services which in turn means both states must sustain the higher cost of living by providing individuals with higher wages. This chart shows that example, as increases in the consumer price index, minimum wage scales in a upward trend allowing for sustainable livability. 
 
->>>>>>> Kevin_Branch
+```{r echo=FALSE, warning=FALSE, message = FALSE}
+WA_NY
+```
+Over the past 17 years, cities such as Seattle and New York have progressively increased in population size. This is detrimental, as higher populations leads to increased demands of consumer goods and services which in turn means both states must sustain the higher cost of living by providing individuals with higher wages. This chart shows that example, as increases in the consumer price index, minimum wage scales in a upward trend allowing for sustainable livability.
+
+## Comparing the Highest Minimum Wages Amongst Ten Highest States
+```{r echo=FALSE, warning=FALSE, message = FALSE}
+ten_highest_2017_states_plot
+```
+
+The minimum wage amounts vary greatly across the United States, with some states having much higher wages than others. Here is a graph showing the differences in wages in 2017 amongst the states with the ten highest minimum wages. An interesting observation to make is how the wages still contain gaps between even the highest wage states, with some almost reaching 12 dollars per hour while others hold back at 9 dollars per hour.
+
+## Highest Recorded Wages Across the US
+```{r echo=FALSE, warning=FALSE, message = FALSE}
+states_wage_plot
+```
+
+Minimum wage across the United States differs greatly state by state. Here is a geographic representation of the minimum wage disparities containing the highest recorded minimum wage a state has had. Of note here is that states on the west coast such as Washington, California, etc. tend to have higher minimum wages than in any other geographic region. This analyzation helps contrast the rates across the states through clear differences from one state to another.
