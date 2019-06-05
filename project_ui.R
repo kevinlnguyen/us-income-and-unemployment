@@ -59,7 +59,7 @@ interact_one <- tabPanel("Reported Minimum Wage by State",
                                 mainPanel(plotlyOutput("plot"))
                               ),
                               p("This data shows us the fluctuation of minimum
-                                wage by state, including whether or not 
+                                wage by state, including whether or not
                                 changes occurred.")
                           )
 interact_page_three <- tabPanel("Interactive Part 3",
@@ -79,7 +79,8 @@ interact_two <- tabPanel("Unemployment Rate",
                                ),
                              year_input <- sliderInput(
                                inputId = "year_input",
-                               label = "Year Range (Unemployment Rate Over Time)",
+                               label = "Year Range (Unemployment Rate Over
+                                       Time)",
                                min = 1990,
                                max = 2016,
                                value = c(1999, 2014)

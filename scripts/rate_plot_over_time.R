@@ -11,10 +11,10 @@ rate_plot_over_time <- function(data, state, year_one, year_two) {
     mutate(hover = paste0("Year: ", Year, "<br>", "Unemployment Rate:",
                           unemployment_rate)) %>%
     filter(State == state & Year >= year_one & Year <= year_two)
-  
+
   # Create line plot with time on X axis and unemployment rate on
   # Y axis
-  rate_plot <- plot_ly(
+  rate_line_plot <- plot_ly(
     data = data,
     x = ~Year,
     y = ~unemployment_rate,
@@ -28,5 +28,5 @@ rate_plot_over_time <- function(data, state, year_one, year_two) {
       xaxis = list(title = "Year"),
       yaxis = list(title = "Unemployment Rate (Percent)")
     )
-  rate_plot
+  rate_line_plot
 }
