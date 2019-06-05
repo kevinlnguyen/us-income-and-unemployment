@@ -49,12 +49,10 @@ states <- wage_df %>%
   unique()
 states <- unlist(states, use.names = FALSE)
 unemployment_df <- read.csv("data/unemployement.csv", stringsAsFactors = FALSE)
-<<<<<<< HEAD
 
 min_year <- min(unemployment_df$Year)
 max_year <- max(unemployment_df$Year)
 
-=======
 unemployment_df <- unemployment_df %>%
   group_by(State, Year) %>%
   summarize(unemployment_rate = mean(Rate))
@@ -63,12 +61,10 @@ unemployment_states <- unemployment_df %>%
   unique()
 unemployment_states <- unlist(states, use.names = FALSE)
 unemployment_df <- read.csv("data/unemployement.csv", stringsAsFactors = FALSE)
->>>>>>> abdf6d2e6816d07dfddc3f438dab47e7fc1e979b
 unemployment_states <- unemployment_df %>%
   select(State) %>%
   unique()
 unemployment_states <- unlist(unemployment_states, use.names = FALSE)
-<<<<<<< HEAD
 
 ########## For tabPanel 1
 income <- read.csv("data/acs2015_county_data.csv", stringsAsFactors = FALSE)
@@ -101,9 +97,6 @@ interact_one <-tabPanel("Racial Demographic Poverty Levels",
                                   mainPanel(plotlyOutput("house_plot"),
                                             textOutput("household_plot_caption")
                                   )))
-
-=======
->>>>>>> dc35da87657eebeddcb648f70a0189489b857285
 interact_two <- tabPanel("Unemployment Rate",
                          h1("Unemployment Rates in the US"),
                          # Create a sidebar layout for widgets and visual
@@ -141,7 +134,6 @@ interact_two <- tabPanel("Unemployment Rate",
                              )
                            )
                          )
-<<<<<<< HEAD
 # Creates a tab (page) for each of the major takeaways from the analysis
 takeaways <- tabPanel("Takeways",
                       h1("Major Takeaways from the Project"),
@@ -167,9 +159,6 @@ wage remains rather consistent across the US, whereas unemployment rate does not
 rates correlate with poverty rates. One distinction we see is that even though there is a small population percentage of Asian Americans, poverty 
 and unemployment rates vastly range across the board. Meanwhile, this can be seen for both the African American and Hispanic demographic as well.")
                          )
-
-=======
-
 interact_three <- tabPanel("Unemployment Rate/Minimum Wage",
                          h1("Unemployment Rate vs. Minimum Wage")
                          )
@@ -178,7 +167,6 @@ interact_three <- tabPanel("Unemployment Rate/Minimum Wage",
 takeaway <- tabPanel("Major Takeaways",
                      h1("Our Findings")
                      )
->>>>>>> abdf6d2e6816d07dfddc3f438dab47e7fc1e979b
 
 # Creates a new tab (page) that includes all team members' names
 team_page <- tabPanel("Meet the Team",
@@ -195,15 +183,12 @@ project_ui <- navbarPage("Minimum Wages in the United States",
                          overview_page,
                          navbarMenu("Data Visualization",
                                     interact_one,
-<<<<<<< HEAD
                                     interact_two
                                     ),
                          takeaways,
-=======
                                     interact_two,
                                     interact_three
                                     ),
                          takeaway,
->>>>>>> abdf6d2e6816d07dfddc3f438dab47e7fc1e979b
                          team_page
                          )
