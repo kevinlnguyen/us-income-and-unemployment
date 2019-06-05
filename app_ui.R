@@ -104,9 +104,12 @@ overview_page <- tabPanel(
           "data"
         )
     )),
-    p("Click on a tab above to learn more.")
-  
+    p("Click on a tab above to learn more."),
+    HTML('<img src=
+         "https://media.graytvinc.com/images/810*455/Unemployment117.jpg"
+         alt="Unemployment Graphic">')
   )
+)
 
 # -----------------------------------------------------------------------------------
 
@@ -191,7 +194,7 @@ interact_two <- tabPanel(
 # -----------------------------------------------------------------------------------
 
 interact_three <- tabPanel(
-  "Minimum wage over the years", # Tab Name
+  "Minimum Wage Over the Years", # Tab Name
   titlePanel("Minimum Wage"),
   # Description of line graph"
   p("On this page I am visualizing the minimum wage data and how it changes
@@ -202,7 +205,7 @@ interact_three <- tabPanel(
     and in every state."),
   p("By looking at the trend you can see that how the minimum wage has always
     been increasing"),
-  h4("Choose a State and time period for the data"),
+  h4("Choose a State and Time Period for the data"),
   h1(), # Creating space between text and widgets/graphs
   h1(),
 
@@ -282,7 +285,7 @@ team_page <- tabPanel(
 # Creates the UI of the website itself with different
 # navigation options that will lead to another tab/page
 project_ui <- navbarPage(
-  "Minimum Wages in the United States",
+  "Minimum Wage and Unemployment",
   overview_page,
   navbarMenu(
     "Data Visualization",
