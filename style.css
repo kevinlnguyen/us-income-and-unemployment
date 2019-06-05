@@ -20,10 +20,8 @@ p {
     font-family: Verdana, Tahoma, sans-serif;
     font-size: 20px;
     color: #333;
-    /* color: #dddde0; */
 }
 
-
 body {
-    background-image: rgb(240,240,240);
+    background-color: #e0e8ff;
 }
