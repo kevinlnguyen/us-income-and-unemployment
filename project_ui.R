@@ -17,8 +17,9 @@ overview_page <- tabPanel("Project Overview",
                             wage changed in different states throughout the
                             years and the effects of unemployment rate. We will
                             use datas from the Department of Labor's Bureau of
-                            Labor Statistics and Washington Center for
-                            Equitable Growth (listed below, respectively)."),
+                            Labor Statistics, Washington Center for Equitable
+                            Growth and US Household Income Statistics & Geo 
+                            Locations (listed respectively)."),
                             p(a("(1) Unemployment Rate in the United States",
                                 href = paste0("https://www.kaggle.com/jayrav1",
                                               "3/unemployment-by-county-us"))),
@@ -27,8 +28,9 @@ overview_page <- tabPanel("Project Overview",
                                               "growth/VZ_historicalminwage/",
                                               "releases"))),
                             p(a("(3) Household Income in the United States",
-                                href = paste0("https://datahub.io/core/house",
-                                              "hold-income-us-historical"))),
+                                href = paste0("https://www.kaggle.com/goldeno",
+                                              "akresearch/us-household-income",
+                                              "-stats-geo-locations"))),
                             p("Click on a tab above to learn more")
                             )
                          )
@@ -39,19 +41,15 @@ states <- wage_df %>%
   unique()
 states <- unlist(states, use.names = FALSE)
 unemployment_df <- read.csv("data/unemployement.csv", stringsAsFactors = FALSE)
-
 unemployment_df <- unemployment_df %>%
   group_by(State, Year) %>%
   summarize(unemployment_rate = mean(Rate))
-
 unemployment_states <- unemployment_df %>%
   select(State) %>%
   unique()
-
 unemployment_states <- unlist(states, use.names = FALSE)
-
-interact_one <- tabPanel("Reported Minimum Wage by State",
-                              h1("Minimum Wage Throughout The Years"),
+interact_one <- tabPanel("Household Income",
+                              h1("Household Income in the US"),
                               sidebarLayout(sidebarPanel(
                                 selectInput(
                                   "state_test",
@@ -62,7 +60,7 @@ interact_one <- tabPanel("Reported Minimum Wage by State",
                                 mainPanel(plotlyOutput("plot"))
                               ),
                               p("This data shows us the fluctuation of minimum
-                                wage by state, including whether or not 
+                                wage by state, including whether or not
                                 changes occurred."))
 interact_two <- tabPanel("Unemployment Rate",
                          h1("Unemployment Rates in the US"),
@@ -100,13 +98,17 @@ interact_two <- tabPanel("Unemployment Rate",
                              )
                            )
                          )
-
+interact_three <- tabPanel("Unemployment Rate/Minimum Wage",
+                         h1("Unemployment Rate vs. Minimum Wage")
+                         )
+                         
 # Creates a tab (page) for each of the major takeaways from the analysis
 takeaway_one <- tabPanel("Major Findings One",
                          h1("Minimum Wage Findings")
                          )
 takeaway_two <- tabPanel("Major Findings Two",
-                         h1("Unemployment Rate Findings")
+                         h1("Unemployment Rate Findings"),
+                         p("")
                          )
 takeaway_three <- tabPanel("Major Findings Three",
                            h1("Takeaway Three Findings")
@@ -127,7 +129,8 @@ project_ui <- navbarPage("Minimum Wages in the United States",
                          overview_page,
                          navbarMenu("Data Visualization",
                                     interact_one,
-                                    interact_two
+                                    interact_two,
+                                    interact_three
                                     ),
                          navbarMenu("What We Found",
                                     takeaway_one,

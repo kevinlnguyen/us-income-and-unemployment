@@ -5,7 +5,7 @@ source("scripts/unemploy_bar_plot.R")
 source("scripts/rate_plot_over_time.R")
 
 
-## Read in Minimum Wage Data 
+## Read in Minimum Wage Data
 min_wage <- read.csv("data/Minimum_Wage_Data.csv", stringsAsFactors = FALSE)
 unemployment <- read.csv("data/unemployement.csv", stringsAsFactors = FALSE)
 
