@@ -73,17 +73,17 @@ overview_page <- tabPanel(
   mainPanel(
     h1("Income and Unemployment Across United States"),
     p("United States has its own Federal Minimum Wage
-        that each state can follow, but it's not a
-        requirement to increase from that minimum.
-        Different states tend to stay from that minimum
-        or increase based upon how the state is doing
-        economically. We will look at how the minimum
-        wage changed in different states throughout the
-        years and the effects of unemployment rate. We will
-        use datas from the Department of Labor's Bureau of
-        Labor Statistics, Washington Center for Equitable
-        Growth and Demographic and Economic Data for Tracts
-        and Counties (listed respectively)."),
+      that each state can follow, but it's not a
+      requirement to increase from that minimum.
+      Different states tend to stay from that minimum
+      or increase based upon how the state is doing
+      economically. We will look at how the minimum
+      wage changed in different states throughout the
+      years and the effects of unemployment rate. We will
+      use datas from the Department of Labor's Bureau of
+      Labor Statistics, Washington Center for Equitable
+      Growth and Demographic and Economic Data for Tracts
+      and Counties (listed respectively)."),
     p(a("(1) Unemployment Rate in the United States",
         href = paste0(
           "https://www.kaggle.com/jayrav1",
@@ -105,8 +105,8 @@ overview_page <- tabPanel(
         )
     )),
     p("Click on a tab above to learn more")
+    )
   )
-)
 
 # -----------------------------------------------------------------------------------
 
@@ -162,18 +162,18 @@ interact_two <- tabPanel(
       year_input <- sliderInput(
         inputId = "year_input",
         label = "Year Range (Unemployment Rate Over
-                               Time)",
+        Time)",
         min = min_year,
         max = max_year,
         value = c(1999, 2014)
-      ),
-      year_bar_input <- numericInput(
-        inputId = "year_bar_input",
-        label = "Year (Unemployment Rate Across States)",
-        min = min_year,
-        max = max_year,
-        value = 2000
-      )
+    ),
+    year_bar_input <- numericInput(
+      inputId = "year_bar_input",
+      label = "Year (Unemployment Rate Across States)",
+      min = min_year,
+      max = max_year,
+      value = 2000
+    )
     ),
     # Main panel containing visual
     mainPanel(
@@ -218,7 +218,7 @@ interact_three <- tabPanel(
       plotlyOutput("mw_bar")
     )
   )
-)
+  )
 
 # -----------------------------------------------------------------------------------
 
@@ -227,27 +227,27 @@ takeaways <- tabPanel(
   "Takeways",
   h1("Major Takeaways from the Project"),
   h2("Relationships/Correlation between Minimum Wage and
-                         Unemployment"),
+     Unemployment"),
   p("For the time frame that we have data for (1990 to
-                        2016), minimum wage for all states seems to have an
-                        increasing trend. When compared to unemployment rates,
-                        we can see that unemployment rates do not have a strong correlation to minimum wage, and are affected by other factors.
-                        Nearly every state had a major spike in unemployment rates around the years 2007 to 2011 when the Great Recession occurred. Unemployment
-                        rates tend to fluctuate greatly as they change from increasing to decreasing and vice-versa, unlike minimum wage. Specifically within the
-                        data, from 2008 to 2010, Washington unemployment rate increases drastically and then begins to decrease, while minimum wage continuously
-                        increases during that time frame. Overall, this displays how other factors affect unemployment rates."),
+    2016), minimum wage for all states seems to have an
+    increasing trend. When compared to unemployment rates,
+    we can see that unemployment rates do not have a strong correlation to minimum wage, and are affected by other factors.
+    Nearly every state had a major spike in unemployment rates around the years 2007 to 2011 when the Great Recession occurred. Unemployment
+    rates tend to fluctuate greatly as they change from increasing to decreasing and vice-versa, unlike minimum wage. Specifically within the
+    data, from 2008 to 2010, Washington unemployment rate increases drastically and then begins to decrease, while minimum wage continuously
+    increases during that time frame. Overall, this displays how other factors affect unemployment rates."),
   h2("Disparities in Minimum Wage and Unemployment"),
   p("In each year, there is a great disparity in unemployment rate across states. Specifically within our data, in the year 1992, Nebraska had
-                        the lowest unemployment rate of around 2.6%, while West Virginia had an unemployment rate of around 12.7%. This gap in unemployment rate
-                        can be seen across all years, which greatly contrasts with the minimum wage across states. For the same year, the lowest minimum wage
-                        amount was $4.25 compared to the highest minimum wage amount of $4.85. These values are much closer than the unemployment rates in the same
-                        year, and these relatively miniscule gaps in minimum wage across states are visible across all years. In summary, this shows how minimum
-                        wage remains rather consistent across the US, whereas unemployment rate does not and is more unpredictable."),
+    the lowest unemployment rate of around 2.6%, while West Virginia had an unemployment rate of around 12.7%. This gap in unemployment rate
+    can be seen across all years, which greatly contrasts with the minimum wage across states. For the same year, the lowest minimum wage
+    amount was $4.25 compared to the highest minimum wage amount of $4.85. These values are much closer than the unemployment rates in the same
+    year, and these relatively miniscule gaps in minimum wage across states are visible across all years. In summary, this shows how minimum
+    wage remains rather consistent across the US, whereas unemployment rate does not and is more unpredictable."),
   h2("Unemployment and Poverty Disparities in Different Races"),
   p("Diving into the year 2015, looking at the unemployment rates through the lens of racial demographics backs us our main points that unemployment
-                        rates correlate with poverty rates. One distinction we see is that even though there is a small population percentage of Asian Americans, poverty 
-                        and unemployment rates vastly range across the board. Meanwhile, this can be seen for both the African American and Hispanic demographic as well.")
-)
+    rates correlate with poverty rates. One distinction we see is that even though there is a small population percentage of Asian Americans, poverty 
+    and unemployment rates vastly range across the board. Meanwhile, this can be seen for both the African American and Hispanic demographic as well.")
+  )
 
 # -----------------------------------------------------------------------------------
 
