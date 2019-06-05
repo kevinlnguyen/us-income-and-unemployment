@@ -1,4 +1,6 @@
 library("shiny")
+library("plotly")
+
 
 # Creates the introduction/project overview of the project
 # and sets the style of the overall website itself
@@ -18,16 +20,36 @@ overview_page <- tabPanel("Project Overview",
     p(a("(2) State Minimum Wage in the United States",
         href = paste0("https://github.com/equitablegrowth/",
                       "VZ_historicalminwage/releases"))),
-    p("Click on a tab to learn more")
+    p("Click on a tab above to learn more")
   )
 )
 
 # Creates three tabs (pages) for each of the interactive visualization
-interact_page_one <- tabPanel("Unemployment Rate",
-  titlePanel("Unemployment Rate Over Time")
-)
-interact_page_two <- tabPanel("Minimum Wage",
-  titlePanel("Minimum Wage Throughout The Years")
+wage_df <- read.csv("data/VZ_StateMinimumWage_Changes.csv", 
+                    stringsAsFactors = FALSE)
+wage_df <- wage_df %>% 
+  select(statename, year, month, day, VZ_mw) %>% 
+  filter(year != "2020")
+states <- wage_df %>% 
+  select(statename) %>% 
+  unique()
+states <- unlist(states, use.names = FALSE)
+interact_page_one <- tabPanel("Reported Minimum Wage by State",
+                              titlePanel("Minimum Wage Throughout The Years"),
+                              sidebarLayout(sidebarPanel(
+                                selectInput(
+                                  "state_test",
+                                  label = "Select a State",
+                                  choices = states,
+                                  selected = "Washington"
+                                )),
+                                mainPanel(plotlyOutput("plot"))
+                              ),
+                              p("This data shows us the fluctuation of minimum
+                                wage by state, including whether or not 
+                                changes occurred."))
+interact_page_two <- tabPanel("Unemployment Rate",
+  titlePanel("Unemployment Rate Throughout The Years")
 )
 interact_page_three <- tabPanel("Interactive Part 3",
   titlePanel("Interactive Page 3")
