@@ -4,13 +4,13 @@ h1 {
     color: white;
 }
 
-h2{
+h2 {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 60px;
     color: slategrey;
 }
 
-h3{
+h3 {
     font-family: "Courier New", Courier, monospace;
     font-size: 50px;
     color: rgb(149, 149, 156);
@@ -23,5 +23,5 @@ p {
 }
 
 body {
-    background-image: linear-gradient(to left, slategrey, 25%, #000);
+    background-image: linear-gradient(to right, black, 10%, gray, 90%, slategrey);
 }
