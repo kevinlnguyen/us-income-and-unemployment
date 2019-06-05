@@ -8,13 +8,9 @@ source("scripts/Household_Income.R")
 
 ## Read in Minimum Wage Data
 unemployment <- read.csv("data/unemployement.csv", stringsAsFactors = FALSE)
+## REad in 2015 data
+income <- read.csv("data/acs2015_county_data.csv", stringsAsFactors = FALSE)
 
-## Select certain columns of dataset
-wage_df <- read.csv("data/VZ_StateMinimumWage_Changes.csv",
-                    stringsAsFactors = FALSE)
-wage_df <- wage_df %>%
-  select(statename, year, month, day, VZ_mw) %>%
-  filter(year != "2020")
 
 project_server <- function(input, output){
   output$plot <- renderPlotly({
@@ -49,13 +45,19 @@ project_server <- function(input, output){
                       across states during the year ", input$year_bar_input,
                       " to show the unemployment disparity across the US.")
   })
-  
-  output$house_plot <- renderPlotly(
-    return(build_scatter(income, input$state))
-  )
+  output$house_plot <- renderPlotly({
+    demo_graph <- ggplot(
+      data = income,
+      mapping = aes_string(x = input$race, y = input$levels)) +
+      geom_point() +
+      geom_smooth() +
+      labs(x = input$race, y = input$levels)
+    demo_graph <- ggplotly(demo_graph)
+    return(demo_graph)
+  })
   output$household_plot_caption <- renderText({
-    house_cap <- paste0("This data displays the total median household income by", 
-                        input$state, "in regards to cities with different land and 
-                       geographic sizes.")
+    house_cap <- paste0("This data displays ", input$levels, " % by % of ",
+                        input$race, " population in 2015 showing a correlation 
+                        with unemployment rates.")
   })
 }

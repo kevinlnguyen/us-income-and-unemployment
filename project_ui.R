@@ -59,23 +59,36 @@ unemployment_states <- unemployment_df %>%
 unemployment_states <- unlist(unemployment_states, use.names = FALSE)
 
 ########## For tabPanel 1
-income <- read.csv("data/kaggle_income.csv", stringsAsFactors = FALSE)
-state_name <- income %>% select(State_Name) %>% unique()
-state_name <- unlist(state_name, use.names = FALSE)
+income <- read.csv("data/acs2015_county_data.csv", stringsAsFactors = FALSE)
+# state_name <- income %>% select(State_Name) %>% unique()
+# state_name <- unlist(state_name, use.names = FALSE)
 ########## End ReadIn
 
-interact_one <- tabPanel(tabPanel("Household Income by State",
+interact_one <-tabPanel("Racial Demographic Poverty Levels",
                                   sidebarLayout(sidebarPanel(
                                     selectInput(
-                                      "state",
-                                      "Select a State",
-                                      choices = state_name,
-                                      selected = "Alabama"
-                                    )
+                                      "race",
+                                      "Select A Racial Demographic",
+                                      choices = list(
+                                        "Hispanic" = "Hispanic",
+                                        "White" = "White",
+                                        "Black" = "Black",
+                                        "Native" = "Native",
+                                        "Asian" = "Asian",
+                                        "Pacific" = "Pacific"),
+                                      selected = "Asian"
                                   ),
+                                  selectInput(
+                                    "levels",
+                                    "Outcome of Interest",
+                                    choices = list(
+                                      "Unemployment Rates" = "Unemployment",
+                                      "Poverty Rates" = "Poverty")
+                                  )
+                                ),
                                   mainPanel(plotlyOutput("house_plot"),
                                             textOutput("household_plot_caption")
-                                  ))))
+                                  )))
 
 interact_two <- tabPanel("Unemployment Rate",
                          h1("Unemployment Rates in the US"),
