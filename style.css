@@ -1,24 +1,24 @@
 h1 {
     font-family: "Lobster", cursive;
-    font-size: 50px;
+    font-size: 30px;
     color: white;
 }
 
 h2 {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
-    font-size: 50px;
+    font-size: 30px;
     color: slategrey;
 }
 
 h3 {
     font-family: "Courier New", Courier, monospace;
-    font-size: 40px;
+    font-size: 15px;
     color: rgb(149, 149, 156);
 }
 
 p {
     font-family: Verdana, Tahoma, sans-serif;
-    font-size: 15px;
+    font-size: 10px;
     color: #dddde0;
 }
 
