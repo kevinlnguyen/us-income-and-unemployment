@@ -64,13 +64,8 @@ interact_one <- tabPanel("Reported Minimum Wage by State",
                               p("This data shows us the fluctuation of minimum
                                 wage by state, including whether or not 
                                 changes occurred."))
-<<<<<<< HEAD
 interact_two <- tabPanel("Unemployment Rate",
-  titlePanel("Unemployment Rate Throughout The Years"),
-=======
-interact_page_two <- tabPanel("Unemployment Rate",
   titlePanel("Unemployment Rates in the US"),
->>>>>>> d61e9cba03237eb95b20c0d9938b1242e7633ae4
   # Create a sidebar layout for widgets and visual
   sidebarLayout(
     # Sidebar panel containing widgets to adjust visual
