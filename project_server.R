@@ -1,5 +1,4 @@
-library("dplyr")
-library("shiny")
+library(dplyr)
 
 source("scripts/unemploy_bar_plot.R")
 source("scripts/WA_Min_Wage_Chart.R")
@@ -11,7 +10,10 @@ unemployment <- read.csv("data/unemployement.csv", stringsAsFactors = FALSE)
 ## REad in 2015 data
 income <- read.csv("data/acs2015_county_data.csv", stringsAsFactors = FALSE)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> dc35da87657eebeddcb648f70a0189489b857285
 project_server <- function(input, output){
   output$plot <- renderPlotly({
     plot <- build_scatter(wage_df, input$state_test)
@@ -56,8 +58,14 @@ project_server <- function(input, output){
     return(demo_graph)
   })
   output$household_plot_caption <- renderText({
+<<<<<<< HEAD
     house_cap <- paste0("This data displays ", input$levels, " % by % of ",
                         input$race, " population in 2015 showing a correlation 
                         with unemployment rates.")
+=======
+    house_cap <- paste0("This data displays the total median household income by ", 
+                        input$state, " in regards to cities with different land and 
+                        geographic sizes.")
+>>>>>>> dc35da87657eebeddcb648f70a0189489b857285
   })
 }
