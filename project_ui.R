@@ -70,19 +70,19 @@ interact_page_two <- tabPanel("Unemployment Rate",
       # Select widget for X variable
       state_input <- selectInput(
         inputId = "state_input",
-        label = "State",
+        label = "State (Unemployment Over Time)",
         choices = unemployment_states
       ),
       year_input <- sliderInput(
         inputId = "year_input",
-        label = "Year Range",
+        label = "Year Range (Unemployment Over Time)",
         min = 1990,
         max = 2016,
         value = c(1999, 2014)
       ),
       year_bar_input <- numericInput(
         inputId = "year_bar_input",
-        label = "Year for Unemployment Rate Across States",
+        label = "Year (Unemployment Rate Across States)",
         min = 1990,
         max = 2016,
         value = 2000
