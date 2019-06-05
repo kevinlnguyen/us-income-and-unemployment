@@ -1,5 +1,3 @@
-library(dplyr)
-
 # Returns a line plot of the given state in the given data frame
 # with its unemployment rate plotted over time between the given
 # years (inclusive)
@@ -8,8 +6,10 @@ rate_plot_over_time <- function(data, state, year_one, year_two) {
   data <- data %>%
     group_by(State, Year) %>%
     summarize(unemployment_rate = mean(Rate)) %>%
-    mutate(hover = paste0("Year: ", Year, "<br>", "Unemployment Rate:",
-                          unemployment_rate)) %>%
+    mutate(hover = paste0(
+      "Year: ", Year, "<br>", "Unemployment Rate:",
+      unemployment_rate
+    )) %>%
     filter(State == state & Year >= year_one & Year <= year_two)
 
   # Create line plot with time on X axis and unemployment rate on

@@ -1,27 +1,29 @@
 h1 {
     font-family: "Lobster", cursive;
-    font-size: 30px;
-    color: white;
+    font-size: 35px;
+    color: #444;
 }
 
 h2 {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 30px;
-    color: slategrey;
+    color: #334;
 }
 
 h3 {
     font-family: "Courier New", Courier, monospace;
-    font-size: 15px;
-    color: rgb(149, 149, 156);
+    font-size: 25px;
+    color: #333;
 }
 
 p {
     font-family: Verdana, Tahoma, sans-serif;
-    font-size: 10px;
-    color: #dddde0;
+    font-size: 20px;
+    color: #333;
+    /* color: #dddde0; */
 }
 
+
 body {
-    background-image: linear-gradient(to right, black, 10%, gray, 90%, slategrey);
+    background-image: rgb(240,240,240);
 }
