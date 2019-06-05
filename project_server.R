@@ -47,8 +47,8 @@ project_server <- function(input, output){
     return(build_scatter(income, input$state))
   )
   output$household_plot_caption <- renderText({
-    house_cap <- paste0("This data displays the total median household income by", 
-                        input$state, "in regards to cities with different land and 
-                       geographic sizes.")
+    house_cap <- paste0("This data displays the total median household income by ", 
+                        input$state, " in regards to cities with different land and 
+                        geographic sizes.")
   })
 }
