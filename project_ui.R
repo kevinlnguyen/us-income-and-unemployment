@@ -1,13 +1,8 @@
 library("shiny")
-library(plotly)
+library("plotly")
 
-wage_df <- read.csv("data/VZ_StateMinimumWage_Changes.csv", 
-                    stringsAsFactors = FALSE)
 
-wage_df <- wage_df %>% 
-  select(statename, year, month, day, VZ_mw) %>% 
-  filter(year != "2020")
-
+<<<<<<< HEAD
 states <- wage_df %>% 
   select(statename) %>% 
   unique()
@@ -36,6 +31,8 @@ interact_page_one <- tabPanel("Reported Minimum Wage by State",
 interact_page_two <- tabPanel("Interactive Part 2",
                               titlePanel("Interactive Page 2"))
 
+=======
+>>>>>>> b7c40447d2585f814a557badb2cce6849ac51f95
 # Creates the introduction/project overview of the project
 # and sets the style of the overall website itself
 overview_page <- tabPanel("Project Overview",
@@ -48,22 +45,42 @@ overview_page <- tabPanel("Project Overview",
     minimum wage changed in different states throughout the years and
     the effects of unemployment rate. We will use datas from the
     Department of Labor's Bureau of Labor Statistics and Washington
-    Center for Equitable Growth (listed below)."),
+    Center for Equitable Growth (listed below, respectively)."),
     p(a("(1) Unemployment Rate in the United States",
         href = "https://www.kaggle.com/jayrav13/unemployment-by-county-us")),
     p(a("(2) State Minimum Wage in the United States",
         href = paste0("https://github.com/equitablegrowth/",
                       "VZ_historicalminwage/releases"))),
-    p("Click on a tab to learn more")
+    p("Click on a tab above to learn more")
   )
 )
 
 # Creates three tabs (pages) for each of the interactive visualization
-interact_page_one <- tabPanel("Unemployment Rate Over Time",
-                              titlePanel("Unemployment Rate")
-)
-interact_page_two <- tabPanel("Minimum Wage Throughout The Years",
-  titlePanel("Minimum Wage")
+wage_df <- read.csv("data/VZ_StateMinimumWage_Changes.csv", 
+                    stringsAsFactors = FALSE)
+wage_df <- wage_df %>% 
+  select(statename, year, month, day, VZ_mw) %>% 
+  filter(year != "2020")
+states <- wage_df %>% 
+  select(statename) %>% 
+  unique()
+states <- unlist(states, use.names = FALSE)
+interact_page_one <- tabPanel("Reported Minimum Wage by State",
+                              titlePanel("Minimum Wage Throughout The Years"),
+                              sidebarLayout(sidebarPanel(
+                                selectInput(
+                                  "state_test",
+                                  label = "Select a State",
+                                  choices = states,
+                                  selected = "Washington"
+                                )),
+                                mainPanel(plotlyOutput("plot"))
+                              ),
+                              p("This data shows us the fluctuation of minimum
+                                wage by state, including whether or not 
+                                changes occurred."))
+interact_page_two <- tabPanel("Unemployment Rate",
+  titlePanel("Unemployment Rate Throughout The Years")
 )
 interact_page_three <- tabPanel("Interactive Part 3",
   titlePanel("Interactive Page 3")
@@ -71,18 +88,18 @@ interact_page_three <- tabPanel("Interactive Part 3",
 
 # Creates three tabs (pages) for each of the major takeaways from the analysis
 takeaway_one <- tabPanel("Major Takeaway One",
-  titlePanel("Minimum Wage Foundings")
+  titlePanel("Minimum Wage Findings")
 )
 takeaway_two <- tabPanel("Major Takeaway Two",
-  titlePanel("Unemployment Rate Foundings")
+  titlePanel("Unemployment Rate Findings")
 )
 takeaway_three <- tabPanel("Major Takeaway Three",
-  titlePanel("Takeaway Three Foundings")
+  titlePanel("Takeaway Three Findings")
 )
 
 # Creates a new tab (page) that includes all team members' names
 team_page <- tabPanel("Meet the Team",
-  h2("The Creators"),
+  h1("The Creators"),
   h3(" > Kevin Nguyen"),
   h3(" > Harsimar Tumber"),
   h3(" > Oscar Perez"),
