@@ -1,24 +1,19 @@
-library("dplyr")
-library("shiny")
+library(dplyr)
 
 source("scripts/unemploy_bar_plot.R")
-source("scripts/rate_plot_over_time.R")
-
-
-## Read in Minimum Wage Data 
-min_wage <- read.csv("data/Minimum_Wage_Data.csv", stringsAsFactors = FALSE)
-unemployment <- read.csv("data/unemployement.csv", stringsAsFactors = FALSE)
-
-## Select certain columns of dataset
-wage_df <- read.csv("data/VZ_StateMinimumWage_Changes.csv",
-                    stringsAsFactors = FALSE)
-wage_df <- wage_df %>%
-  select(statename, year, month, day, VZ_mw) %>%
-  filter(year != "2020")
-
-#Display short description by state
 source("scripts/WA_Min_Wage_Chart.R")
+source("scripts/rate_plot_over_time.R")
+source("scripts/Household_Income.R")
 
+## Read in Minimum Wage Data
+unemployment <- read.csv("data/unemployement.csv", stringsAsFactors = FALSE)
+## REad in 2015 data
+income <- read.csv("data/acs2015_county_data.csv", stringsAsFactors = FALSE)
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> dc35da87657eebeddcb648f70a0189489b857285
 project_server <- function(input, output){
   output$plot <- renderPlotly({
     plot <- build_scatter(wage_df, input$state_test)
@@ -51,5 +46,26 @@ project_server <- function(input, output){
     caption <- paste0("This data displays how the unemployment rate varies
                       across states during the year ", input$year_bar_input,
                       " to show the unemployment disparity across the US.")
+  })
+  output$house_plot <- renderPlotly({
+    demo_graph <- ggplot(
+      data = income,
+      mapping = aes_string(x = input$race, y = input$levels)) +
+      geom_point() +
+      geom_smooth() +
+      labs(x = input$race, y = input$levels)
+    demo_graph <- ggplotly(demo_graph)
+    return(demo_graph)
+  })
+  output$household_plot_caption <- renderText({
+<<<<<<< HEAD
+    house_cap <- paste0("This data displays ", input$levels, " % by % of ",
+                        input$race, " population in 2015 showing a correlation 
+                        with unemployment rates.")
+=======
+    house_cap <- paste0("This data displays the total median household income by ", 
+                        input$state, " in regards to cities with different land and 
+                        geographic sizes.")
+>>>>>>> dc35da87657eebeddcb648f70a0189489b857285
   })
 }

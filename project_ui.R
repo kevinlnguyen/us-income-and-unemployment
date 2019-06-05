@@ -1,6 +1,6 @@
-library("shiny")
-library("plotly")
-library("dplyr")
+library(shiny)
+library(plotly)
+library(dplyr)
 
 # Creates the introduction/project overview of the project
 # and sets the style of the overall website itself
@@ -17,8 +17,9 @@ overview_page <- tabPanel("Project Overview",
                             wage changed in different states throughout the
                             years and the effects of unemployment rate. We will
                             use datas from the Department of Labor's Bureau of
-                            Labor Statistics and Washington Center for
-                            Equitable Growth (listed below, respectively)."),
+                            Labor Statistics, Washington Center for Equitable
+                            Growth and Demographic and Economic Data for Tracts
+                            and Counties (listed respectively)."),
                             p(a("(1) Unemployment Rate in the United States",
                                 href = paste0("https://www.kaggle.com/jayrav1",
                                               "3/unemployment-by-county-us"))),
@@ -26,48 +27,83 @@ overview_page <- tabPanel("Project Overview",
                                 href = paste0("https://github.com/equitable",
                                               "growth/VZ_historicalminwage/",
                                               "releases"))),
-                            p(a("(3) Household Income in the United States",
-                                href = paste0("https://datahub.io/core/house",
-                                              "hold-income-us-historical"))),
+                            p(a("(3) US Census Demographic Data",
+                                href = paste0("https://www.kaggle.com/muonne","
+                                              utrino/us-census-demographic",
+                                              "data"))),
                             p("Click on a tab above to learn more")
                             )
                          )
 # Creates a tab (page) for each of the interactive visualization
+# For tabPanel 1
+income <- read.csv("data/kaggle_income.csv", stringsAsFactors = FALSE)
+state_name <- income %>% select(State_Name) %>% unique()
+state_name <- unlist(state_name, use.names = FALSE)
+interact_one <- tabPanel("Demographic Data",
+                         h1("US Demographic by State")
+                         )
+# For tabPanel2
 wage_df <- read.csv("data/VZ_state_annual.csv")
 states <- wage_df %>%
   select(Name) %>%
   unique()
 states <- unlist(states, use.names = FALSE)
-
 unemployment_df <- read.csv("data/unemployement.csv", stringsAsFactors = FALSE)
+<<<<<<< HEAD
 
 min_year <- min(unemployment_df$Year)
 max_year <- max(unemployment_df$Year)
 
+=======
+unemployment_df <- unemployment_df %>%
+  group_by(State, Year) %>%
+  summarize(unemployment_rate = mean(Rate))
 unemployment_states <- unemployment_df %>%
   select(State) %>%
   unique()
-
+unemployment_states <- unlist(states, use.names = FALSE)
+unemployment_df <- read.csv("data/unemployement.csv", stringsAsFactors = FALSE)
+>>>>>>> abdf6d2e6816d07dfddc3f438dab47e7fc1e979b
+unemployment_states <- unemployment_df %>%
+  select(State) %>%
+  unique()
 unemployment_states <- unlist(unemployment_states, use.names = FALSE)
+<<<<<<< HEAD
 
-interact_one <- tabPanel("Reported Minimum Wage by State",
-                              h1("Minimum Wage Throughout The Years"),
-                              sidebarLayout(sidebarPanel(
-                                selectInput(
-                                  "state_test",
-                                  label = "Select a State",
-                                  choices = states,
-                                  selected = "Washington"
-                                )),
-                                mainPanel(plotlyOutput("plot"))
-                              ),
-                              p("This data shows us the fluctuation of minimum
-                                wage by state, including whether or not
-                                changes occurred.")
-                          )
-interact_page_three <- tabPanel("Interactive Part 3",
-  titlePanel("Interactive Page 3")
-)
+########## For tabPanel 1
+income <- read.csv("data/acs2015_county_data.csv", stringsAsFactors = FALSE)
+# state_name <- income %>% select(State_Name) %>% unique()
+# state_name <- unlist(state_name, use.names = FALSE)
+########## End ReadIn
+
+interact_one <-tabPanel("Racial Demographic Poverty Levels",
+                                  sidebarLayout(sidebarPanel(
+                                    selectInput(
+                                      "race",
+                                      "Select A Racial Demographic",
+                                      choices = list(
+                                        "Hispanic" = "Hispanic",
+                                        "White" = "White",
+                                        "Black" = "Black",
+                                        "Native" = "Native",
+                                        "Asian" = "Asian",
+                                        "Pacific" = "Pacific"),
+                                      selected = "Asian"
+                                  ),
+                                  selectInput(
+                                    "levels",
+                                    "Outcome of Interest",
+                                    choices = list(
+                                      "Unemployment Rates" = "Unemployment",
+                                      "Poverty Rates" = "Poverty")
+                                  )
+                                ),
+                                  mainPanel(plotlyOutput("house_plot"),
+                                            textOutput("household_plot_caption")
+                                  )))
+
+=======
+>>>>>>> dc35da87657eebeddcb648f70a0189489b857285
 interact_two <- tabPanel("Unemployment Rate",
                          h1("Unemployment Rates in the US"),
                          # Create a sidebar layout for widgets and visual
@@ -105,6 +141,7 @@ interact_two <- tabPanel("Unemployment Rate",
                              )
                            )
                          )
+<<<<<<< HEAD
 # Creates a tab (page) for each of the major takeaways from the analysis
 takeaways <- tabPanel("Takeways",
                       h1("Major Takeaways from the Project"),
@@ -131,6 +168,17 @@ rates correlate with poverty rates. One distinction we see is that even though t
 and unemployment rates vastly range across the board. Meanwhile, this can be seen for both the African American and Hispanic demographic as well.")
                          )
 
+=======
+
+interact_three <- tabPanel("Unemployment Rate/Minimum Wage",
+                         h1("Unemployment Rate vs. Minimum Wage")
+                         )
+                         
+# Creates a tab (page) for each of the major takeaways from the analysis
+takeaway <- tabPanel("Major Takeaways",
+                     h1("Our Findings")
+                     )
+>>>>>>> abdf6d2e6816d07dfddc3f438dab47e7fc1e979b
 
 # Creates a new tab (page) that includes all team members' names
 team_page <- tabPanel("Meet the Team",
@@ -147,8 +195,15 @@ project_ui <- navbarPage("Minimum Wages in the United States",
                          overview_page,
                          navbarMenu("Data Visualization",
                                     interact_one,
+<<<<<<< HEAD
                                     interact_two
                                     ),
                          takeaways,
+=======
+                                    interact_two,
+                                    interact_three
+                                    ),
+                         takeaway,
+>>>>>>> abdf6d2e6816d07dfddc3f438dab47e7fc1e979b
                          team_page
                          )
