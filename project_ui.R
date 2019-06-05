@@ -18,8 +18,8 @@ overview_page <- tabPanel("Project Overview",
                             years and the effects of unemployment rate. We will
                             use datas from the Department of Labor's Bureau of
                             Labor Statistics, Washington Center for Equitable
-                            Growth and US Household Income Statistics & Geo 
-                            Locations (listed respectively)."),
+                            Growth and Demographic and Economic Data for Tracts
+                            and Counties (listed respectively)."),
                             p(a("(1) Unemployment Rate in the United States",
                                 href = paste0("https://www.kaggle.com/jayrav1",
                                               "3/unemployment-by-county-us"))),
@@ -27,16 +27,23 @@ overview_page <- tabPanel("Project Overview",
                                 href = paste0("https://github.com/equitable",
                                               "growth/VZ_historicalminwage/",
                                               "releases"))),
-                            p(a("(3) Household Income in the United States",
-                                href = paste0("https://www.kaggle.com/goldeno",
-                                              "akresearch/us-household-income",
-                                              "-stats-geo-locations"))),
+                            p(a("(3) US Census Demographic Data",
+                                href = paste0("https://www.kaggle.com/muonne","
+                                              utrino/us-census-demographic",
+                                              "data"))),
                             p("Click on a tab above to learn more")
                             )
                          )
-# Creates a tab (page) for each of the interactive visualization
 
-## For tabPanel2
+# Creates a tab (page) for each of the interactive visualization
+# For tabPanel 1
+income <- read.csv("data/kaggle_income.csv", stringsAsFactors = FALSE)
+state_name <- income %>% select(State_Name) %>% unique()
+state_name <- unlist(state_name, use.names = FALSE)
+interact_one <- tabPanel("Demographic Data",
+                         h1("US Demographic by State")
+                         )
+# For tabPanel2
 wage_df <- read.csv("data/VZ_state_annual.csv")
 states <- wage_df %>%
   select(Name) %>%
@@ -51,33 +58,10 @@ unemployment_states <- unemployment_df %>%
   unique()
 unemployment_states <- unlist(states, use.names = FALSE)
 unemployment_df <- read.csv("data/unemployement.csv", stringsAsFactors = FALSE)
-
 unemployment_states <- unemployment_df %>%
   select(State) %>%
   unique()
-
 unemployment_states <- unlist(unemployment_states, use.names = FALSE)
-
-########## For tabPanel 1
-income <- read.csv("data/kaggle_income.csv", stringsAsFactors = FALSE)
-state_name <- income %>% select(State_Name) %>% unique()
-state_name <- unlist(state_name, use.names = FALSE)
-########## End ReadIn
-
-interact_one <- tabPanel("Household Income",
-                                  h1("Household Income in the US"),
-                                  sidebarLayout(sidebarPanel(
-                                    selectInput(
-                                      "state",
-                                      "Select a State",
-                                      choices = state_name,
-                                      selected = "Alabama"
-                                    )
-                                  ),
-                                  mainPanel(plotlyOutput("house_plot"),
-                                            textOutput("household_plot_caption")
-                                  )))
-
 interact_two <- tabPanel("Unemployment Rate",
                          h1("Unemployment Rates in the US"),
                          # Create a sidebar layout for widgets and visual
@@ -121,16 +105,9 @@ interact_three <- tabPanel("Unemployment Rate/Minimum Wage",
                          )
                          
 # Creates a tab (page) for each of the major takeaways from the analysis
-takeaway_one <- tabPanel("Major Findings One",
-                         h1("Household Income Findings")
-                         )
-takeaway_two <- tabPanel("Major Findings Two",
-                         h1("Unemployment Rate Findings"),
-                         p("")
-                         )
-takeaway_three <- tabPanel("Major Findings Three",
-                           h1("Takeaway Three Findings")
-                           )
+takeaway <- tabPanel("Major Takeaways",
+                     h1("Our Findings")
+                     )
 
 # Creates a new tab (page) that includes all team members' names
 team_page <- tabPanel("Meet the Team",
@@ -150,10 +127,6 @@ project_ui <- navbarPage("Minimum Wages in the United States",
                                     interact_two,
                                     interact_three
                                     ),
-                         navbarMenu("What We Found",
-                                    takeaway_one,
-                                    takeaway_two,
-                                    takeaway_three
-                                    ),
+                         takeaway,
                          team_page
                          )
