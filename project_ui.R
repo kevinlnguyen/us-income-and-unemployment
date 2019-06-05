@@ -23,136 +23,17 @@ states <- wage_df %>%
   select(Name) %>%
   unique()
 states <- unlist(states, use.names = FALSE)
-<<<<<<< HEAD
-unemployment_df <- read.csv("data/unemployement.csv", stringsAsFactors = FALSE)
-=======
->>>>>>> 5177f34f20a48d652d113e6fefbcdb7444c9f875
 
 
-<<<<<<< HEAD
-unemployment_df <- unemployment_df %>%
-  group_by(State, Year) %>%
-  summarize(unemployment_rate = mean(Rate))
-unemployment_states <- unemployment_df %>%
-  select(State) %>%
-  unique()
-unemployment_states <- unlist(states, use.names = FALSE)
-unemployment_df <- read.csv("data/unemployement.csv", stringsAsFactors = FALSE)
-unemployment_states <- unemployment_df %>%
-=======
 unemployment_df_new <- unemployment_df %>%
   group_by(State, Year) %>%
   summarize(unemployment_rate = mean(Rate))
 
 unemployment_states <- unemployment_df_new %>%
->>>>>>> 5177f34f20a48d652d113e6fefbcdb7444c9f875
   select(State) %>%
   unique()
 unemployment_states <- unlist(unemployment_states, use.names = FALSE)
 
-<<<<<<< HEAD
-########## For tabPanel 1
-income <- read.csv("data/acs2015_county_data.csv", stringsAsFactors = FALSE)
-# state_name <- income %>% select(State_Name) %>% unique()
-# state_name <- unlist(state_name, use.names = FALSE)
-########## End ReadIn
-
-interact_one <-tabPanel("Racial Demographic Poverty Levels",
-                                  sidebarLayout(sidebarPanel(
-                                    selectInput(
-                                      "race",
-                                      "Select A Racial Demographic",
-                                      choices = list(
-                                        "Hispanic" = "Hispanic",
-                                        "White" = "White",
-                                        "Black" = "Black",
-                                        "Native" = "Native",
-                                        "Asian" = "Asian",
-                                        "Pacific" = "Pacific"),
-                                      selected = "Asian"
-                                  ),
-                                  selectInput(
-                                    "levels",
-                                    "Outcome of Interest",
-                                    choices = list(
-                                      "Unemployment Rates" = "Unemployment",
-                                      "Poverty Rates" = "Poverty")
-                                  )
-                                ),
-                                  mainPanel(plotlyOutput("house_plot"),
-                                            textOutput("household_plot_caption")
-                                  )))
-interact_two <- tabPanel("Unemployment Rate",
-                         h1("Unemployment Rates in the US"),
-                         # Create a sidebar layout for widgets and visual
-                         sidebarLayout(
-                           # Sidebar panel containing widgets to adjust visual
-                           sidebarPanel(
-                             # Select widget for X variable
-                             state_input <- selectInput(
-                               inputId = "state_input",
-                               label = "State (Unemployment Rate Over Time)",
-                               choices = unemployment_states
-                               ),
-                             year_input <- sliderInput(
-                               inputId = "year_input",
-                               label = "Year Range (Unemployment Rate Over
-                                       Time)",
-                               min = min_year,
-                               max = max_year,
-                               value = c(1999, 2014)
-                               ),
-                             year_bar_input <- numericInput(
-                               inputId = "year_bar_input",
-                               label = "Year (Unemployment Rate Across States)",
-                               min = 1990,
-                               max = 2016,
-                               value = 2000
-                               )
-                             ),
-                           # Main panel containing visual
-                           mainPanel(
-                             plotlyOutput("rate_plot"),
-                             textOutput("line_plot_caption"),
-                             plotlyOutput("states_year_bar_plot"),
-                             textOutput("bar_plot_caption")
-                             )
-                           )
-                         )
-# Creates a tab (page) for each of the major takeaways from the analysis
-takeaways <- tabPanel("Takeways",
-                      h1("Major Takeaways from the Project"),
-                      h2("Relationships/Correlation between Minimum Wage and
-                         Unemployment"),
-                      p("For the time frame that we have data for (1990 to
-                        2016), minimum wage for all states seems to have an
-                        increasing trend. When compared to unemployment rates,
-                    we can see that unemployment rates do not have a strong correlation to minimum wage, and are affected by other factors.
-                        Nearly every state had a major spike in unemployment rates around the years 2007 to 2011 when the Great Recession occurred. Unemployment
-                        rates tend to fluctuate greatly as they change from increasing to decreasing and vice-versa, unlike minimum wage. Specifically within the
-                        data, from 2008 to 2010, Washington unemployment rate increases drastically and then begins to decrease, while minimum wage continuously
-                        increases during that time frame. Overall, this displays how other factors affect unemployment rates."),
-                      h2("Disparities in Minimum Wage and Unemployment"),
-                      p("In each year, there is a great disparity in unemployment rate across states. Specifically within our data, in the year 1992, Nebraska had
-the lowest unemployment rate of around 2.6%, while West Virginia had an unemployment rate of around 12.7%. This gap in unemployment rate
-can be seen across all years, which greatly contrasts with the minimum wage across states. For the same year, the lowest minimum wage
-amount was $4.25 compared to the highest minimum wage amount of $4.85. These values are much closer than the unemployment rates in the same
-year, and these relatively miniscule gaps in minimum wage across states are visible across all years. In summary, this shows how minimum
-wage remains rather consistent across the US, whereas unemployment rate does not and is more unpredictable."),
-                      h2("Unemployment and Poverty Disparities in Different Races"),
-                      p("Diving into the year 2015, looking at the unemployment rates through the lens of racial demographics backs us our main points that unemployment
-rates correlate with poverty rates. One distinction we see is that even though there is a small population percentage of Asian Americans, poverty 
-and unemployment rates vastly range across the board. Meanwhile, this can be seen for both the African American and Hispanic demographic as well.")
-                         )
-interact_three <- tabPanel("Unemployment Rate/Minimum Wage",
-                         h1("Unemployment Rate vs. Minimum Wage")
-                         )
-                         
-# Creates a tab (page) for each of the major takeaways from the analysis
-takeaway <- tabPanel("Major Takeaways",
-                     h1("Our Findings")
-                     )
-=======
 # widgets ----------------------------------------------------------
 
 state_names <- unemployment_df %>%
@@ -369,7 +250,6 @@ takeaways <- tabPanel(
   )
 
 # -----------------------------------------------------------------------------------
->>>>>>> 5177f34f20a48d652d113e6fefbcdb7444c9f875
 
 # Creates a new tab (page) that includes all team members' names
 team_page <- tabPanel(
@@ -385,21 +265,6 @@ team_page <- tabPanel(
 
 # Creates the UI of the website itself with different
 # navigation options that will lead to another tab/page
-<<<<<<< HEAD
-project_ui <- navbarPage("Minimum Wages in the United States",
-                         overview_page,
-                         navbarMenu("Data Visualization",
-                                    interact_one,
-                                    interact_two
-                                    ),
-                         takeaways,
-                                    interact_two,
-                                    interact_three
-                                    ),
-                         takeaway,
-                         team_page
-                         )
-=======
 project_ui <- navbarPage(
   "Minimum Wages in the United States",
   overview_page,
@@ -412,4 +277,3 @@ project_ui <- navbarPage(
   takeaways,
   team_page
 )
->>>>>>> 5177f34f20a48d652d113e6fefbcdb7444c9f875
