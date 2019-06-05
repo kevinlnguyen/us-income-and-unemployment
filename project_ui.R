@@ -11,10 +11,8 @@ wage_df <- wage_df %>%
 states <- wage_df %>% 
   select(statename) %>% 
   unique()
-
 states <- unlist(states, use.names = FALSE)
 
-<<<<<<< HEAD
 overview_page <- tabPanel("Overview",
                           titlePanel("Overview of the Project"),
                           mainPanel(
@@ -37,7 +35,7 @@ interact_page_one <- tabPanel("Reported Minimum Wage by State",
                                 changes occurred."))
 interact_page_two <- tabPanel("Interactive Part 2",
                               titlePanel("Interactive Page 2"))
-=======
+
 # Creates the introduction/project overview of the project
 # and sets the style of the overall website itself
 overview_page <- tabPanel("Project Overview",
@@ -67,7 +65,6 @@ interact_page_one <- tabPanel("Unemployment Rate Over Time",
 interact_page_two <- tabPanel("Minimum Wage Throughout The Years",
   titlePanel("Minimum Wage")
 )
->>>>>>> 91f87296d0a6f70ee3ad7e82bb135b93bad8fe9e
 interact_page_three <- tabPanel("Interactive Part 3",
   titlePanel("Interactive Page 3")
 )
@@ -96,13 +93,6 @@ team_page <- tabPanel("Meet the Team",
 project_ui <- navbarPage(
   "Minimum Wages in the United States",
   overview_page,
-<<<<<<< HEAD
-  interact_page_one,
-  interact_page_two,
-  interact_page_three,
-  summary_page
-)
-=======
   navbarMenu("Data Visualization", # Creates a menu bar for different pages
              interact_page_one,
              interact_page_two,
@@ -113,4 +103,3 @@ project_ui <- navbarPage(
              takeaway_three),
   team_page
 )
->>>>>>> 91f87296d0a6f70ee3ad7e82bb135b93bad8fe9e
