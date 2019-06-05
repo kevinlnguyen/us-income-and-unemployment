@@ -35,6 +35,8 @@ overview_page <- tabPanel("Project Overview",
                             )
                          )
 # Creates a tab (page) for each of the interactive visualization
+
+## For tabPanel2
 wage_df <- read.csv("data/VZ_state_annual.csv")
 states <- wage_df %>%
   select(Name) %>%
@@ -55,21 +57,27 @@ unemployment_states <- unemployment_df %>%
   unique()
 
 unemployment_states <- unlist(unemployment_states, use.names = FALSE)
-interact_one <- tabPanel("US Household Income",
-                              h1("Household Income by County"),
-                              sidebarLayout(sidebarPanel(
-                                selectInput(
-                                  "state_test",
-                                  label = "Select a State",
-                                  choices = states,
-                                  selected = "Washington"
-                                )),
-                                mainPanel(plotlyOutput("plot"))
-                              ),
-                              p("This data shows us the fluctuation of minimum
-                                wage by state, including whether or not
-                                changes occurred.")
-                         )
+
+########## For tabPanel 1
+income <- read.csv("data/kaggle_income.csv", stringsAsFactors = FALSE)
+state_name <- income %>% select(State_Name) %>% unique()
+state_name <- unlist(state_name, use.names = FALSE)
+########## End ReadIn
+
+interact_one <- tabPanel("Household Income",
+                                  h1("Household Income in the US"),
+                                  sidebarLayout(sidebarPanel(
+                                    selectInput(
+                                      "state",
+                                      "Select a State",
+                                      choices = state_name,
+                                      selected = "Alabama"
+                                    )
+                                  ),
+                                  mainPanel(plotlyOutput("house_plot"),
+                                            textOutput("household_plot_caption")
+                                  )))
+
 interact_two <- tabPanel("Unemployment Rate",
                          h1("Unemployment Rates in the US"),
                          # Create a sidebar layout for widgets and visual
