@@ -12,7 +12,7 @@ overview_page <- tabPanel("Project Overview",
     minimum wage changed in different states throughout the years and
     the effects of unemployment rate. We will use datas from the
     Department of Labor's Bureau of Labor Statistics and Washington
-    Center for Equitable Growth (listed below)."),
+    Center for Equitable Growth (listed below, respectively)."),
     p(a("(1) Unemployment Rate in the United States",
         href = "https://www.kaggle.com/jayrav13/unemployment-by-county-us")),
     p(a("(2) State Minimum Wage in the United States",
@@ -23,11 +23,11 @@ overview_page <- tabPanel("Project Overview",
 )
 
 # Creates three tabs (pages) for each of the interactive visualization
-interact_page_one <- tabPanel("Unemployment Rate Over Time",
-                              titlePanel("Unemployment Rate")
+interact_page_one <- tabPanel("Unemployment Rate",
+  titlePanel("Unemployment Rate Over Time")
 )
-interact_page_two <- tabPanel("Minimum Wage Throughout The Years",
-  titlePanel("Minimum Wage")
+interact_page_two <- tabPanel("Minimum Wage",
+  titlePanel("Minimum Wage Throughout The Years")
 )
 interact_page_three <- tabPanel("Interactive Part 3",
   titlePanel("Interactive Page 3")
@@ -35,18 +35,18 @@ interact_page_three <- tabPanel("Interactive Part 3",
 
 # Creates three tabs (pages) for each of the major takeaways from the analysis
 takeaway_one <- tabPanel("Major Takeaway One",
-  titlePanel("Minimum Wage Foundings")
+  titlePanel("Minimum Wage Findings")
 )
 takeaway_two <- tabPanel("Major Takeaway Two",
-  titlePanel("Unemployment Rate Foundings")
+  titlePanel("Unemployment Rate Findings")
 )
 takeaway_three <- tabPanel("Major Takeaway Three",
-  titlePanel("Takeaway Three Foundings")
+  titlePanel("Takeaway Three Findings")
 )
 
 # Creates a new tab (page) that includes all team members' names
 team_page <- tabPanel("Meet the Team",
-  h2("The Creators"),
+  h1("The Creators"),
   h3(" > Kevin Nguyen"),
   h3(" > Harsimar Tumber"),
   h3(" > Oscar Perez"),

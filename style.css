@@ -13,13 +13,13 @@ h2{
 h3{
     font-family: "Courier New", Courier, monospace;
     font-size: 50px;
-    color: ghostwhite;
+    color: rgb(149, 149, 156);
 }
 
 p {
     font-family: Verdana, Tahoma, sans-serif;
     font-size: 20px;
-    color: #f8f8ff;
+    color: #dddde0;
 }
 
 body {
