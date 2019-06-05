@@ -1,4 +1,4 @@
-# function to create a plotly with the minimum wage data
+# Creates a plotly with the minimum wage data
 # changes the plot accordin to the state and years selected
 mw_func <- function(data, state, year1, year2) {
   mw_data <- data %>%
