@@ -41,6 +41,9 @@ states <- unlist(states, use.names = FALSE)
 
 unemployment_df <- read.csv("data/unemployement.csv", stringsAsFactors = FALSE)
 
+min_year <- min(unemployment_df$Year)
+max_year <- max(unemployment_df$Year)
+
 unemployment_states <- unemployment_df %>%
   select(State) %>%
   unique()
@@ -81,8 +84,8 @@ interact_two <- tabPanel("Unemployment Rate",
                                inputId = "year_input",
                                label = "Year Range (Unemployment Rate Over
                                        Time)",
-                               min = 1990,
-                               max = 2016,
+                               min = min_year,
+                               max = max_year,
                                value = c(1999, 2014)
                                ),
                              year_bar_input <- numericInput(
@@ -103,15 +106,31 @@ interact_two <- tabPanel("Unemployment Rate",
                            )
                          )
 # Creates a tab (page) for each of the major takeaways from the analysis
-takeaway_one <- tabPanel("Major Findings One",
-                         h1("Minimum Wage Findings")
+takeaways <- tabPanel("Takeways",
+                      h1("Major Takeaways from the Project"),
+                      h2("Relationships/Correlation between Minimum Wage and
+                         Unemployment"),
+                      p("For the time frame that we have data for (1990 to
+                        2016), minimum wage for all states seems to have an
+                        increasing trend. When compared to unemployment rates,
+                    we can see that unemployment rates do not have a strong correlation to minimum wage, and are affected by other factors.
+                        Nearly every state had a major spike in unemployment rates around the years 2007 to 2011 when the Great Recession occurred. Unemployment
+                        rates tend to fluctuate greatly as they change from increasing to decreasing and vice-versa, unlike minimum wage. Specifically within the
+                        data, from 2008 to 2010, Washington unemployment rate increases drastically and then begins to decrease, while minimum wage continuously
+                        increases during that time frame. Overall, this displays how other factors affect unemployment rates."),
+                      h2("Disparities in Minimum Wage and Unemployment"),
+                      p("In each year, there is a great disparity in unemployment rate across states. Specifically within our data, in the year 1992, Nebraska had
+the lowest unemployment rate of around 2.6%, while West Virginia had an unemployment rate of around 12.7%. This gap in unemployment rate
+can be seen across all years, which greatly contrasts with the minimum wage across states. For the same year, the lowest minimum wage
+amount was $4.25 compared to the highest minimum wage amount of $4.85. These values are much closer than the unemployment rates in the same
+year, and these relatively miniscule gaps in minimum wage across states are visible across all years. In summary, this shows how minimum
+wage remains rather consistent across the US, whereas unemployment rate does not and is more unpredictable."),
+                      h2("Unemployment and Poverty Disparities in Different Races"),
+                      p("Diving into the year 2015, looking at the unemployment rates through the lens of racial demographics backs us our main points that unemployment
+rates correlate with poverty rates. One distinction we see is that even though there is a small population percentage of Asian Americans, poverty 
+and unemployment rates vastly range across the board. Meanwhile, this can be seen for both the African American and Hispanic demographic as well.")
                          )
-takeaway_two <- tabPanel("Major Findings Two",
-                         h1("Unemployment Rate Findings")
-                         )
-takeaway_three <- tabPanel("Major Findings Three",
-                           h1("Takeaway Three Findings")
-                           )
+
 
 # Creates a new tab (page) that includes all team members' names
 team_page <- tabPanel("Meet the Team",
@@ -130,10 +149,6 @@ project_ui <- navbarPage("Minimum Wages in the United States",
                                     interact_one,
                                     interact_two
                                     ),
-                         navbarMenu("What We Found",
-                                    takeaway_one,
-                                    takeaway_two,
-                                    takeaway_three
-                                    ),
+                         takeaways,
                          team_page
                          )
