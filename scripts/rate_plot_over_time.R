@@ -1,3 +1,5 @@
+library(dplyr)
+
 # Returns a line plot of the given state in the given data frame
 # with its unemployment rate plotted over time between the given
 # years (inclusive)

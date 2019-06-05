@@ -1,3 +1,5 @@
+library(dplyr)
+
 # Returns a bar plot of all states in the given data frame against their
 # unemployment rate in the given year
 unemploy_bar_plot <- function(data, year) {
