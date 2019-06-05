@@ -55,8 +55,8 @@ unemployment_states <- unemployment_df %>%
   unique()
 
 unemployment_states <- unlist(unemployment_states, use.names = FALSE)
-interact_one <- tabPanel("Reported Minimum Wage by State",
-                              h1("Minimum Wage Throughout The Years"),
+interact_one <- tabPanel("US Household Income",
+                              h1("Household Income by County"),
                               sidebarLayout(sidebarPanel(
                                 selectInput(
                                   "state_test",
@@ -114,7 +114,7 @@ interact_three <- tabPanel("Unemployment Rate/Minimum Wage",
                          
 # Creates a tab (page) for each of the major takeaways from the analysis
 takeaway_one <- tabPanel("Major Findings One",
-                         h1("Minimum Wage Findings")
+                         h1("Household Income Findings")
                          )
 takeaway_two <- tabPanel("Major Findings Two",
                          h1("Unemployment Rate Findings"),
