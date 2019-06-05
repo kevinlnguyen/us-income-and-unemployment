@@ -1,0 +1,27 @@
+h1 {
+    font-family: "Lobster", cursive;
+    font-size: 60px;
+    color: white;
+}
+
+h2{
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 60px;
+    color: slategrey;
+}
+
+h3{
+    font-family: "Courier New", Courier, monospace;
+    font-size: 50px;
+    color: ghostwhite;
+}
+
+p {
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 20px;
+    color: #f8f8ff;
+}
+
+body {
+    background-image: linear-gradient(to left, slategrey, 25%, #000);
+}
