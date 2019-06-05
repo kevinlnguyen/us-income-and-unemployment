@@ -34,6 +34,19 @@ states <- wage_df %>%
   select(statename) %>% 
   unique()
 states <- unlist(states, use.names = FALSE)
+
+unemployment_df <- read.csv("data/unemployement.csv", stringsAsFactors = FALSE)
+
+unemployment_df <- unemployment_df %>%
+  group_by(State, Year) %>%
+  summarize(unemployment_rate = mean(Rate))
+
+unemployment_states <- unemployment_df %>%
+  select(State) %>%
+  unique()
+
+unemployment_states <- unlist(states, use.names = FALSE)
+
 interact_page_one <- tabPanel("Reported Minimum Wage by State",
                               titlePanel("Minimum Wage Throughout The Years"),
                               sidebarLayout(sidebarPanel(
@@ -49,7 +62,40 @@ interact_page_one <- tabPanel("Reported Minimum Wage by State",
                                 wage by state, including whether or not 
                                 changes occurred."))
 interact_page_two <- tabPanel("Unemployment Rate",
-  titlePanel("Unemployment Rate Throughout The Years")
+  titlePanel("Unemployment Rate Throughout The Years"),
+  # Create a sidebar layout for widgets and visual
+  sidebarLayout(
+    # Sidebar panel containing widgets to adjust visual
+    sidebarPanel(
+      # Select widget for X variable
+      state_input <- selectInput(
+        inputId = "state_input",
+        label = "State",
+        choices = unemployment_states
+      ),
+      year_input <- sliderInput(
+        inputId = "year_input",
+        label = "Year Range",
+        min = 1990,
+        max = 2016,
+        value = c(1999, 2014)
+      ),
+      year_bar_input <- numericInput(
+        inputId = "year_bar_input",
+        label = "Year for Unemployment Rate Across States",
+        min = 1990,
+        max = 2016,
+        value = 2000
+      )
+    ),
+    # Main panel containing visual
+    mainPanel(
+      plotlyOutput("rate_plot"),
+      textOutput("line_plot_caption"),
+      plotlyOutput("states_year_bar_plot"),
+      textOutput("bar_plot_caption")
+    )
+  )
 )
 interact_page_three <- tabPanel("Interactive Part 3",
   titlePanel("Interactive Page 3")
