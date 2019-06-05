@@ -32,23 +32,20 @@ overview_page <- tabPanel("Project Overview",
                             p("Click on a tab above to learn more")
                             )
                          )
-
 # Creates a tab (page) for each of the interactive visualization
+wage_df <- read.csv("data/VZ_state_annual.csv")
 states <- wage_df %>%
-  select(statename) %>%
+  select(Name) %>%
   unique()
 states <- unlist(states, use.names = FALSE)
-unemployment_df <- read.csv("data/unemployement.csv", stringsAsFactors = FALSE)
 
-unemployment_df <- unemployment_df %>%
-  group_by(State, Year) %>%
-  summarize(unemployment_rate = mean(Rate))
+unemployment_df <- read.csv("data/unemployement.csv", stringsAsFactors = FALSE)
 
 unemployment_states <- unemployment_df %>%
   select(State) %>%
   unique()
 
-unemployment_states <- unlist(states, use.names = FALSE)
+unemployment_states <- unlist(unemployment_states, use.names = FALSE)
 
 interact_one <- tabPanel("Reported Minimum Wage by State",
                               h1("Minimum Wage Throughout The Years"),
@@ -63,48 +60,11 @@ interact_one <- tabPanel("Reported Minimum Wage by State",
                               ),
                               p("This data shows us the fluctuation of minimum
                                 wage by state, including whether or not 
-                                changes occurred."))
-<<<<<<< HEAD
-interact_page_two <- tabPanel("Unemployment Rate",
-  titlePanel("Unemployment Rates in the US"),
-  # Create a sidebar layout for widgets and visual
-  sidebarLayout(
-    # Sidebar panel containing widgets to adjust visual
-    sidebarPanel(
-      # Select widget for X variable
-      state_input <- selectInput(
-        inputId = "state_input",
-        label = "State (Unemployment Over Time)",
-        choices = unemployment_states
-      ),
-      year_input <- sliderInput(
-        inputId = "year_input",
-        label = "Year Range (Unemployment Over Time)",
-        min = 1990,
-        max = 2016,
-        value = c(1999, 2014)
-      ),
-      year_bar_input <- numericInput(
-        inputId = "year_bar_input",
-        label = "Year (Unemployment Rate Across States)",
-        min = 1990,
-        max = 2016,
-        value = 2000
-      )
-    ),
-    # Main panel containing visual
-    mainPanel(
-      plotlyOutput("rate_plot"),
-      textOutput("line_plot_caption"),
-      plotlyOutput("states_year_bar_plot"),
-      textOutput("bar_plot_caption")
-    )
-  )
-)
+                                changes occurred.")
+                          )
 interact_page_three <- tabPanel("Interactive Part 3",
   titlePanel("Interactive Page 3")
 )
-=======
 interact_two <- tabPanel("Unemployment Rate",
                          h1("Unemployment Rates in the US"),
                          # Create a sidebar layout for widgets and visual
@@ -114,19 +74,19 @@ interact_two <- tabPanel("Unemployment Rate",
                              # Select widget for X variable
                              state_input <- selectInput(
                                inputId = "state_input",
-                               label = "State",
+                               label = "State (Unemployment Rate Over Time)",
                                choices = unemployment_states
                                ),
                              year_input <- sliderInput(
                                inputId = "year_input",
-                               label = "Year Range",
+                               label = "Year Range (Unemployment Rate Over Time)",
                                min = 1990,
                                max = 2016,
                                value = c(1999, 2014)
                                ),
                              year_bar_input <- numericInput(
                                inputId = "year_bar_input",
-                               label = "Year for Unemployment Rate Across States",
+                               label = "Year (Unemployment Rate Across States)",
                                min = 1990,
                                max = 2016,
                                value = 2000
@@ -141,8 +101,6 @@ interact_two <- tabPanel("Unemployment Rate",
                              )
                            )
                          )
->>>>>>> e02df9d53f538533db5dc1c70956016e038c9976
-
 # Creates a tab (page) for each of the major takeaways from the analysis
 takeaway_one <- tabPanel("Major Findings One",
                          h1("Minimum Wage Findings")
