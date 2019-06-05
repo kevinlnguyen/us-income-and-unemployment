@@ -1,4 +1,4 @@
-library("shiny")
+library(shiny)
 
 # Loading the 'server' and 'ui' files into the 'app' file
 source("project_ui.R")

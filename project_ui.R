@@ -1,6 +1,6 @@
-library("shiny")
-library("plotly")
-library("dplyr")
+library(shiny)
+library(plotly)
+library(dplyr)
 
 # Creates the introduction/project overview of the project
 # and sets the style of the overall website itself
@@ -34,7 +34,6 @@ overview_page <- tabPanel("Project Overview",
                             p("Click on a tab above to learn more")
                             )
                          )
-
 # Creates a tab (page) for each of the interactive visualization
 # For tabPanel 1
 income <- read.csv("data/kaggle_income.csv", stringsAsFactors = FALSE)

@@ -1,5 +1,4 @@
-library("dplyr")
-library("shiny")
+library(dplyr)
 
 source("scripts/unemploy_bar_plot.R")
 source("scripts/WA_Min_Wage_Chart.R")
