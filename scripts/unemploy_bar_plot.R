@@ -9,12 +9,12 @@ unemploy_bar_plot <- function(data, year) {
     summarize(unemployment_rate = mean(Rate)) %>%
     mutate(hover = paste0("Unemployment Rate: ", unemployment_rate)) %>%
     filter(Year == year)
-  
+
   # Create bar plot with states on X and unemployment rate on Y
-  plot <- plot_ly(
+  rate_bar_plot <- plot_ly(
     data = data,
-    x = ~State, # use a formula to specify the column for the x-axis
-    y = ~unemployment_rate, # use a formula to specify the column for the y-axis
+    x = ~State,
+    y = ~unemployment_rate,
     text = ~hover,
     hoverinfo = "text",
     type = "bar"
@@ -24,5 +24,5 @@ unemploy_bar_plot <- function(data, year) {
       xaxis = list(title = "State"),
       yaxis = list(title = "Unemployment Rate (Percent)")
     )
-  plot
+  rate_bar_plot
 }
