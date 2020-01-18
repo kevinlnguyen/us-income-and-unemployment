@@ -1,6 +1,8 @@
 # Final Deliverable
 [Shiny Application](https://oscar-perez1.shinyapps.io/wage_and_unemployment_in_the_us/)
 
+*Final group project for INFO 201: Intellectual Foundations of Informatics at the University of Washington (Spring 2019).*
+
 # Project Brainstorm
 
 ## Domain of Interest
