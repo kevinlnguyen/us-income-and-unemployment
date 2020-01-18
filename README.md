@@ -1,5 +1,5 @@
 # Final Deliverable
-[Shiny Application.](https://oscar-perez1.shinyapps.io/wage_and_unemployment_in_the_us/)
+[Shiny Application](https://oscar-perez1.shinyapps.io/wage_and_unemployment_in_the_us/)
 
 # Project Brainstorm
 
