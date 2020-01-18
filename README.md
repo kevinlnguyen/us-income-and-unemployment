@@ -1,7 +1,7 @@
 # Final Deliverable
 [Final Shiny Application](https://oscar-perez1.shinyapps.io/wage_and_unemployment_in_the_us/)
 
-[Research Webpage](https://kevinlnguyen.github.io/us-income-and-unemployment/)
+[Project Research](https://kevinlnguyen.github.io/us-income-and-unemployment/)
 
 *Final group project for INFO 201: Intellectual Foundations of Informatics at the University of Washington (Spring 2019).*
 
